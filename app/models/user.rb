@@ -5,5 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :notdogs, dependent: :destroy
   has_many :bookings
+  has_many :reservations, through: :notdogs, source: :bookings
   validates :name, :address, :phone, presence: true
 end
