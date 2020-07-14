@@ -1,0 +1,10 @@
+<div class container>
+  <h1> Welcome to a unique experience</h1>
+  <div class='row row-cols-1 row-cols-md-2'>
+    <% @notdogs.each do |notdog| %>
+      <h2> <%= cocktail.name %> </h2>
+        <div> <%= link_to 'Details', notdog_path(notdog) %> </div>
+    <% end %>
+  </div>
+
+</div>

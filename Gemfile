@@ -34,7 +34,7 @@ gem 'simple_form'
 gem 'devise'
 # dotenv
 gem 'dotenv-rails', groups: [:development, :test]
-
+gem 'pundit'
 # Cloudinary
 
 gem 'cloudinary', '~> 1.12.0'
