@@ -5,7 +5,6 @@ class NotdogsController < ApplicationController
   end
 
   def show
-
   end
 
   def new
@@ -32,7 +31,7 @@ class NotdogsController < ApplicationController
   private
 
   def notdog_params
-    params.require(:notdog).permit(:name, :cost_per_day, :description, :address, :taxonomy)
+    params.require(:notdog).permit(:name, :cost_per_day, :description, :address)
   end
 
   def set_notdog
