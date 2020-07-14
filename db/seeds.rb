@@ -6,20 +6,18 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+require 'faker'
+
 Notdog.destroy_all
 User.destroy_all
 
-
-
 user = User.create!(email: "test@test.com", password: "test1234", name: "admin", address: "test", phone: "test")
 
-notdog = Notdog.new(name: "Kiss from a Rose", cost_per_day: "100", description: "Likes balls", owner: User.first, taxonomy: Taxonomy.find_by_name("foca"))
-notdog.save
-taxonomy = Taxonomy.new(name: "Foca", category: "Acuático", fantasy_name: "Water Doggo")
-
-taxonomy.notdog = notdog
-taxonomy.save
-
+notdog = Notdog.new(name: "Kiss from a Rose", cost_per_day: "100",
+                    description: "Likes balls", owner: User.first,
+                    taxonomy_name: "Foca", taxonomy_category: "Acuático",
+                    taxonomy_fantasy_name: "Water Doggo", address: Faker::Address.street_address)
+notdog.save!
 
 # Taxonomy.create!(name: "Tiburón Blanco", category: "Acuático", fantasy_name: "Bitey Water Doggo")
 
