@@ -11,19 +11,17 @@
         <div class="card-body">
           <h5 class="card-title"><%= @notdog.name %></h5>
           <p class="card-text"><%= @notdog.description %></p>
+          <li>Owner: <%= @notdog.owner.name %></li>
+          <li><%= @notdog.taxonomy_name %></li>
+          <li><%= @notdog.taxonomy_category %></li>
+          <li><%= @notdog.taxonomy_fantasy_name %></li>
+          <li>Cost per day: <%= @notdog.cost_per_day %></li>
+          <li><%= @notdog.description %></li>
+          <li><%= @notdog.address %></li>
+          </div>
           <a href="#" class="btn btn-primary">Book this Notdog</a>
         </div>
       </div>
-
-      <h3>More details:</h3>
-
-        <li>Owner: <%= @notdog.owner.name %></li>
-        <li><%= @notdog.taxonomy_name %></li>
-        <li><%= @notdog.taxonomy_category %></li>
-        <li><%= @notdog.taxonomy_fantasy_name %></li>
-        <li>Cost per day: <%= @notdog.cost_per_day %></li>
-        <li><%= @notdog.description %></li>
-        <li><%= @notdog.address %></li>
-    </div>
   </div>
 </div>
+
