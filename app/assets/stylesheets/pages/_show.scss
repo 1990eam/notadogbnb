@@ -16,6 +16,7 @@
 .show-row {
 
   justify-content: space-evenly;
+  align-items: center;
 
 }
 
@@ -37,11 +38,25 @@
   }
 }
 
+.infos {
+
+  display: flex;
+  flex-direction: column;
+
+}
+
+
 .details {
 
   h2{
     text-align: center;
   }
+}
 
+.map {
+  height: 300px;
+  width: 300px;
+  border: 1px solid black;
 
 }
+
