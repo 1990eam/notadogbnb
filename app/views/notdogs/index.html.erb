@@ -3,7 +3,9 @@
   <div class='row row-cols-1 row-cols-md-2'>
     <% @notdogs.each do |notdog| %>
       <h2> <%= notdog.name %> </h2>
+      <h3> <%= notdog.user %></h3>
         <div> <%= link_to 'Details', notdog_path(notdog) %> </div>
+        <div> <%= link_to "Edit", edit_notdogs_path %></div>
     <% end %>
   </div>
 
