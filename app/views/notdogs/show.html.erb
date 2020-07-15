@@ -1,36 +1,45 @@
 <div class="container show-container">
   <h1><%= @notdog.name %></h1>
   <div class="row show-row">
-    <div class="col-lg-4 col-6">
-      <div class="card-notdog-show mb-3" style="width: 18rem;">
-        <% if @notdog.photo.present? %>
-          <%= cl_image_tag @notdog.photo.key, height: 300, width: 285, crop: :fill, class:"notdog-image-show" %>
-        <% end %>
-        <div class="card-body">
-          <p class="card-text"><%= @notdog.description %></p>
-          <p>Real name: <%= @notdog.taxonomy_name %></p>
-          <p>Category: <%= @notdog.taxonomy_category %></p>
+    <div class="col-lg-3 col-6">
+
+      <!-- Card -->
+          <div class="card-notdog mb-3">
+              <img src=<%= cl_image_path @notdog.photo.key, height: 500, width: 700, crop: :fill %> >
+              <div class="card-notdog-infos">
+                <div>
+                  <p class="text-black-50"><%= @notdog.taxonomy_fantasy_name %> (<%= @notdog.taxonomy_name %>)</p>
+                  <h2><%= link_to @notdog.name, notdog_path(@notdog) %></h2>
+                  <p><%= @notdog.description %></p>
+                </div>
+                  <p class="card-notdog-pricing">USD$<%= @notdog.cost_per_day %></p>
+              </div>
+              <div class="book-button">
+              <a href="#" class="btn btn-primary book-button">Book this Notdog</a>
+
+              </div>
+            </div>
           </div>
-          <a href="#" class="btn btn-primary book-button">Book this Notdog</a>
+
+      <!-- Details & Map -->
+
+          <div class="infos">
+
+            <div class="col-log-4 details">
+              <h2>Other details:</h2>
+              <p>Owner: <%= @notdog.owner.name %> </p>
+              <p>Fantasy name: <%= @notdog.taxonomy_fantasy_name %></p>
+              <p>Cost per day: <%= @notdog.cost_per_day %></p>
+              <p>Location: <%= @notdog.address %></p>
+            </div>
+
+            <div class="map">
+              <h1>map placeholder</h1>
+            </div>
+
+          </div>
+
         </div>
-      </div>
-
-      <div class="infos">
-
-        <div class="col-log-4 details">
-          <h2>Other details:</h2>
-          <p>Owner: <%= @notdog.owner.name %> </p>
-          <p>Fantasy name: <%= @notdog.taxonomy_fantasy_name %></p>
-          <p>Cost per day: <%= @notdog.cost_per_day %></p>
-          <p>Location: <%= @notdog.address %></p>
-        </div>
-
-        <div class="map">
-          <h1>map</h1>
-        </div>
-
-      </div>
-
   </div>
 </div>
 

@@ -1,7 +1,7 @@
 .show-container {
 
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  height: 80vh;
+  height: 75vh;
   margin-top: 2rem;
 
   h1 {
@@ -20,23 +20,11 @@
 
 }
 
-.card-notdog-show {
+.book-button {
 
-  overflow: hidden;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  text-align: center;
-
-  .book-button {
-    margin-bottom: 5px;
+    text-align: center;
+    margin-bottom: 0.5rem;
   }
-
-  img {
-    height: 250px;
-    width: 100%;
-    object-fit: cover;
-  }
-}
 
 .infos {
 
@@ -60,3 +48,46 @@
 
 }
 
+
+
+
+
+
+.card-notdog {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.card-notdog > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-notdog h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-notdog p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+.card-notdog .card-notdog-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-notdog-infos .card-notdog-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}
