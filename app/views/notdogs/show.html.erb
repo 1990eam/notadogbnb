@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <ul>
+        <h1><%= @notdog.name %></h1>
+        <% if @notdog.photo.present? %>
+          <%= cl_image_tag @notdog.photo.key, height: 300, width: 400, crop: :fill, class:"notdog-image-show" %>
+        <% end %>
+        <li>Owner: <%= @notdog.owner.name %></li>
+        <li><%= @notdog.taxonomy_name %></li>
+        <li><%= @notdog.taxonomy_category %></li>
+        <li><%= @notdog.taxonomy_fantasy_name %></li>
+        <li>Cost per day: <%= @notdog.cost_per_day %></li>
+        <li><%= @notdog.description %></li>
+        <li><%= @notdog.address %></li>
+      </ul>
+    </div>
+  </div>
+</div>
