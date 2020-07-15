@@ -1,5 +1,6 @@
 class NotdogsController < ApplicationController
   before_action :set_notdog, only: [:show, :edit, :update]
+  skip_before_action :authenticate_user!, only: [:index, :show]
   def index
     @notdogs = policy_scope(Notdog)
   end
