@@ -1,27 +1,44 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-4">
+<div class="container show-container">
+  <h1><%= @notdog.name %></h1>
+  <div class="row show-row">
+    <div class="col-lg-3 col-6">
 
-      <h1><%= @notdog.name %></h1>
+      <!-- Card -->
+          <div class="card-notdog mb-3">
+            <img src=<%= cl_image_path @notdog.photo.key, height: 500, width: 700, crop: :fill %> >
+            <div class="card-notdog-infos">
+              <div>
+                <p class="text-black-50"><%= @notdog.taxonomy_fantasy_name %> (<%= @notdog.taxonomy_name %>)</p>
+                <h2><%= link_to @notdog.name, notdog_path(@notdog) %></h2>
+                <p><%= @notdog.description %></p>
+              </div>
+                  <p class="card-notdog-pricing">USD$<%= @notdog.cost_per_day %></p>
+            </div>
 
-      <div class="card" style="width: 18rem;">
-        <% if @notdog.photo.present? %>
-          <%= cl_image_tag @notdog.photo.key, height: 300, width: 285, crop: :fill, class:"notdog-image-show" %>
-        <% end %>
-        <div class="card-body">
-          <h5 class="card-title"><%= @notdog.name %></h5>
-          <p class="card-text"><%= @notdog.description %></p>
-          <li>Owner: <%= @notdog.owner.name %></li>
-          <li><%= @notdog.taxonomy_name %></li>
-          <li><%= @notdog.taxonomy_category %></li>
-          <li><%= @notdog.taxonomy_fantasy_name %></li>
-          <li>Cost per day: <%= @notdog.cost_per_day %></li>
-          <li><%= @notdog.description %></li>
-          <li><%= @notdog.address %></li>
+            <div class="book-button">
+            <a href="#" class="btn btn-primary book-button">Book this Notdog</a>
+            </div>
           </div>
-          <a href="#" class="btn btn-primary">Book this Notdog</a>
-        </div>
+    </div>
+
+      <!-- Details & Map -->
+
+    <div class="infos">
+
+      <div class="col-log-4 details">
+        <h2>Other details:</h2>
+        <p>Owner: <%= @notdog.owner.name %> </p>
+        <p>Fantasy name: <%= @notdog.taxonomy_fantasy_name %></p>
+        <p>Cost per day: <%= @notdog.cost_per_day %></p>
+        <p>Location: <%= @notdog.address %></p>
       </div>
+
+      <div class="map">
+        <h1>map placeholder</h1>
+      </div>
+
+    </div>
   </div>
 </div>
+
 
