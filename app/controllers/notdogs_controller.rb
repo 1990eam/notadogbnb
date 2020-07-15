@@ -4,8 +4,7 @@ class NotdogsController < ApplicationController
     @notdogs = policy_scope(Notdog)
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @notdog = Notdog.new
@@ -16,16 +15,29 @@ class NotdogsController < ApplicationController
     @notdog = Notdog.new(notdog_params)
     @notdog.user = current_user
     authorize @notdog
+
+    if @notdog.save
+      redirect_to @notdog
+    else
+      render :new
+    end
   end
 
-  def edit
-
-  end
+  def edit; end
 
   def update
+    @notdog.update(notdog_params)
+
+    if @notdog.save
+      redirect_to @notdog
+    else
+      render :edit
+    end
   end
 
   def destroy
+    @notdog.destroy
+    redirect_to notdogs_path
   end
 
   private
@@ -38,4 +50,6 @@ class NotdogsController < ApplicationController
     @notdog = Notdog.find(params[:id])
     authorize @notdog
   end
+
+
 end
