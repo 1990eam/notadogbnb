@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+
+      <h1><%= @notdog.name %></h1>
+
+      <div class="card" style="width: 18rem;">
+        <% if @notdog.photo.present? %>
+          <%= cl_image_tag @notdog.photo.key, height: 300, width: 285, crop: :fill, class:"notdog-image-show" %>
+        <% end %>
+        <div class="card-body">
+          <h5 class="card-title"><%= @notdog.name %></h5>
+          <p class="card-text"><%= @notdog.description %></p>
+          <li>Owner: <%= @notdog.owner.name %></li>
+          <li><%= @notdog.taxonomy_name %></li>
+          <li><%= @notdog.taxonomy_category %></li>
+          <li><%= @notdog.taxonomy_fantasy_name %></li>
+          <li>Cost per day: <%= @notdog.cost_per_day %></li>
+          <li><%= @notdog.description %></li>
+          <li><%= @notdog.address %></li>
+          </div>
+          <a href="#" class="btn btn-primary">Book this Notdog</a>
+        </div>
+      </div>
+  </div>
+</div>
+
