@@ -5,6 +5,7 @@ class NotdogsController < ApplicationController
   end
 
   def show
+    # before_action
   end
 
   def new
@@ -19,10 +20,11 @@ class NotdogsController < ApplicationController
   end
 
   def edit
-
+    # before_action
   end
 
   def update
+    # before_action
   end
 
   def destroy
