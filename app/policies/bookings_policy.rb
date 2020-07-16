@@ -13,5 +13,4 @@ class BookingsPolicy < ApplicationPolicy
     record.user == user
   end
 
-
 end

@@ -15,13 +15,17 @@ before_action :set_booking, only: [:show, :edit, :update]
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     authorize @booking
+    @booking.save
   end
 
-  def edit
-
-  end
+  def edit; end
 
   def update
+    if @booking.update(booking_params)
+      redirect_to booking_path(@booking)
+    else
+      render :show
+    end
   end
 
   private
