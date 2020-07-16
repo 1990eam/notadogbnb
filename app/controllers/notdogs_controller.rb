@@ -44,7 +44,7 @@ class NotdogsController < ApplicationController
   private
 
   def notdog_params
-    params.require(:notdog).permit(:name, :cost_per_day, :description, :address)
+    params.require(:notdog).permit(:name, :cost_per_day, :description, :address, :taxonomy_name, :taxonomy_category, :taxonomy_fantasy_name, :photo)
   end
 
   def set_notdog
