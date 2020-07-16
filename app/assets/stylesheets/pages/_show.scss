@@ -1,5 +1,40 @@
-// Import page-specific CSS files here.
-@import "home";
+.show-container {
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  height: 75vh;
+  margin-top: 2rem;
+
+  h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+}
+
+.show-row {
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.book-button {
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
+.infos {
+  display: flex;
+  flex-direction: column;
+}
+
+.details {
+  h2{
+    text-align: center;
+  }
+}
+
+.map {
+  height: 300px;
+  width: 300px;
+  border: 1px solid black;
+}
 
 .card-notdog {
   overflow: hidden;
@@ -39,4 +74,3 @@
   top: -20px;
   width: 40px;
 }
-

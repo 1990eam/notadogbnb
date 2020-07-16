@@ -1,10 +1,22 @@
-<div class container>
+<div class="container">
   <h1> Welcome to a unique experience</h1>
-  <div class='row row-cols-1 row-cols-md-2'>
+  <div class='row'>
     <% @notdogs.each do |notdog| %>
-      <h2> <%= notdog.name %> </h2>
-        <div> <%= link_to 'Details', notdog_path(notdog) %> </div>
+    <div class="col-lg-4 col-6">
+      <div class="card-notdog mb-3">
+          <img src=<%= cl_image_path notdog.photo.key, height: 500, width: 700, crop: :fill %> >
+          <div class="card-notdog-infos">
+            <div>
+              <p class="text-black-50"><%= notdog.taxonomy_fantasy_name %> (<%= notdog.taxonomy_name %>)</p>
+              <h2><%= link_to notdog.name, notdog_path(notdog) %></h2>
+              <p><%= notdog.description %></p>
+            </div>
+              <p class="card-notdog-pricing">USD$<%= notdog.cost_per_day %></p>
+
+          </div>
+      </div>
+    </div>
     <% end %>
   </div>
-
 </div>
+
