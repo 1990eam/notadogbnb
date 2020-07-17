@@ -103,3 +103,20 @@ notdog = Notdog.new(name: "Princess Diana", cost_per_day: "110",
                     address: Faker::Address.street_address)
 notdog.photo.attach(io:URI.open("https://source.unsplash.com/random/?#{notdog.taxonomy_name}"), filename: "#{notdog.name}.png", content_type: 'image/png')
 notdog.save!
+
+
+# Bookings
+
+i = 1
+
+10.times do
+  booking = Booking.create!(user_id: 1,
+                            notdog_id: i,
+                            start_date: Date.current,
+                            end_date: Date.current + 10)
+
+i += 1
+end
+
+
+
