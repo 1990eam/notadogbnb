@@ -14,10 +14,10 @@ class NotdogsController < ApplicationController
 
   def create
     @notdog = Notdog.new(notdog_params)
-    @notdog.user = current_user
+    @notdog.owner = current_user
     authorize @notdog
 
-    if @notdog.save
+    if @notdog.save!
       redirect_to @notdog
     else
       render :new
