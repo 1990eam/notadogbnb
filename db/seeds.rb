@@ -11,6 +11,7 @@ require 'open-uri'
 
 Notdog.destroy_all
 User.destroy_all
+Booking.destroy_all
 
 user = User.create!(email: "test@test.com", password: "test1234", name: "admin", address: "test", phone: "test")
 
@@ -107,16 +108,20 @@ notdog.save!
 
 # Bookings
 
-i = 1
-
 10.times do
-  booking = Booking.create!(user_id: 1,
-                            notdog_id: i,
-                            start_date: Date.current,
-                            end_date: Date.current + 10)
+  i = Notdog.first.id
 
-i += 1
+    notdog = Notdog.find_by(id: i).id
+    user = User.first.id
+
+    booking = Booking.new(user_id: user,
+                         notdog_id: notdog,
+                         start_date: Date.current,
+                         end_date: Date.current + 10,
+                         price: 100)
+  booking.save
+
+  i += 1
 end
-
 
 
