@@ -123,5 +123,3 @@ notdog.save!
 
   i += 1
 end
-
-
