@@ -12,5 +12,4 @@ class BookingsPolicy < ApplicationPolicy
   def update?
     record.user == user
   end
-
 end

@@ -4,7 +4,9 @@ before_action :set_booking, only: [:show, :edit, :update]
     @bookings = policy_scope(Booking).order(created_at: :desc)
   end
 
-  def show; end
+  def show
+    @bookings = policy_scope(Booking)
+  end
 
   def new
     @booking = Booking.new
