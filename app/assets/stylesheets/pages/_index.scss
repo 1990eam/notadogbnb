@@ -1,6 +1,10 @@
 // Import page-specific CSS files here.
 @import "home";
 
+.main-header {
+  color: $logo-orange;
+}
+
 .card-notdog {
   overflow: hidden;
   background: white;

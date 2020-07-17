@@ -6,5 +6,6 @@ class User < ApplicationRecord
   has_many :notdogs, dependent: :destroy
   has_many :bookings
   has_many :reservations, through: :notdogs, source: :bookings
-  validates :name, :address, :phone, presence: true
+  has_one_attached :photo
+  #validates :name, :address, :phone, presence: true
 end
