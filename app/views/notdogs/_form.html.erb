@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="form-group">
+      <%= simple_form_for @notdog do |f| %>
+      <%= f.error_notification %>
+      <%= f.input :name, placeholder: "Nombre" %>
+      <%= f.input :description, as: :text, placeholder: "Describe tu mascota" %>
+      <%= f.input :cost_per_day %>
+      <%= f.input :address, placeholder: "Dirección" %>
+      <%= f.input :taxonomy_name, :label => "Pet name" %>
+      <%= f.input :taxonomy_fantasy_name, :label => "Fantasy name" %>
+      <%= f.input :taxonomy_category, :label => "Category" %>
+      <%= f.input :photo, as: :file %>
+      <%= f.button :submit, class: "btn-primary" %>
+      <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
+    <% end %>
+    </div>
+</div>
