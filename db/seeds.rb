@@ -11,6 +11,7 @@ require 'open-uri'
 
 Notdog.destroy_all
 User.destroy_all
+Booking.destroy_all
 
 user = User.create!(email: "test@test.com", password: "test1234", name: "admin", address: "test", phone: "test")
 
@@ -103,3 +104,22 @@ notdog = Notdog.new(name: "Princess Diana", cost_per_day: "110",
                     address: Faker::Address.street_address)
 notdog.photo.attach(io:URI.open("https://source.unsplash.com/random/?#{notdog.taxonomy_name}"), filename: "#{notdog.name}.png", content_type: 'image/png')
 notdog.save!
+
+
+# Bookings
+
+10.times do
+  i = Notdog.first.id
+
+    notdog = Notdog.find_by(id: i).id
+    user = User.first.id
+
+    booking = Booking.new(user_id: user,
+                         notdog_id: notdog,
+                         start_date: Date.current,
+                         end_date: Date.current + 10,
+                         price: 100)
+  booking.save
+
+  i += 1
+end
