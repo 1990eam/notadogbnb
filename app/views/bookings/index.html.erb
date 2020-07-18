@@ -11,8 +11,10 @@
               <h2><%= link_to booking.notdog.name, notdog_path(booking.notdog) %></h2>
               <p><%= booking.start_date %> - <%= booking.end_date %></p>
               <p><%= booking.notdog.address  %></p>
-            </div>
               <p class=>USD$<%= booking.price %></p>
+            </div>
+            <%= link_to "See booking", booking_path(booking) %>
+
           </div>
       </div>
     </div>

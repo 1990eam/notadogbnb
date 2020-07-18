@@ -18,8 +18,14 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @booking.user = current_user
+    @booking.notdog = Notdog.find(params[:notdog_id])
+    @booking.price = @booking.notdog.cost_per_day * (@booking.end_date - @booking.start_date)
     authorize @booking
-    @booking.save
+    if @booking.save!
+      redirect_to bookings_path
+    else
+      render :new
+    end
   end
 
   def edit; end
@@ -39,7 +45,7 @@ class BookingsController < ApplicationController
   end
 
   def set_booking
-    @booking = booking.find(params[:id])
+    @booking = Booking.find(params[:id])
     authorize @booking
   end
 end
