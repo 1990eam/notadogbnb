@@ -10,6 +10,7 @@ class NotdogsController < ApplicationController
         lat: notdog.latitude,
         lng: notdog.longitude
       }
+    end
   end
 
   def show; end
