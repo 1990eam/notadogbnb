@@ -1,12 +1,16 @@
-class BookingsPolicy < ApplicationPolicy
+class BookingPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      scope.where(user: @user)
     end
   end
 
+  def new?
+    create?
+  end
+
   def create?
-    return true
+    true
   end
 
   def update?
