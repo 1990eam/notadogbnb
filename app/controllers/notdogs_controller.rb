@@ -5,11 +5,12 @@ class NotdogsController < ApplicationController
     @notdogs = policy_scope(Notdog)
     @notdogs = Notdog.geocoded
 
-    @markers =  @notdogs.map do |notdog|
+    @markers = @notdogs.map do |notdog|
       {
         lat: notdog.latitude,
         lng: notdog.longitude
       }
+    end
   end
 
   def show; end
