@@ -32,6 +32,6 @@ import { loadDynamicBannerText } from '../components/banner';
 import { initMapbox } from '../plugins/init_mapbox';
 
 document.addEventListener('turbolinks:load', () => {
-  // loadDynamicBannerText();
   initMapbox();
+  loadDynamicBannerText();
 });
