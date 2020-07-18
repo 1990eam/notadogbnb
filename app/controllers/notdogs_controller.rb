@@ -1,6 +1,6 @@
 class NotdogsController < ApplicationController
-  before_action :set_notdog, only: [:show, :edit, :update]
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  before_action :set_notdog, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:index]
   def index
     @notdogs = policy_scope(Notdog)
   end
@@ -44,6 +44,7 @@ class NotdogsController < ApplicationController
   private
 
   def notdog_params
+    # estos parametros se usan tanto para crear como para updatear un notdog
     params.require(:notdog).permit(:name, :cost_per_day, :description, :address, :taxonomy_name, :taxonomy_category, :taxonomy_fantasy_name, :photo)
   end
 
@@ -51,6 +52,5 @@ class NotdogsController < ApplicationController
     @notdog = Notdog.find(params[:id])
     authorize @notdog
   end
-
 
 end
