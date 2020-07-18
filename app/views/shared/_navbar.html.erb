@@ -1,6 +1,12 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to root_path, class: "navbar-brand" do %>
-    <%= image_tag "logo.png" %>
+  <% if user_signed_in? %>
+    <%= link_to notdogs_path, class: "navbar-brand" do %>
+      <%= image_tag "logo.png" %>
+    <% end %>
+  <% else %>
+    <%= link_to root_path, class: "navbar-brand" do %>
+      <%= image_tag "logo.png" %>
+    <% end %>
   <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,9 +17,8 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-        <li>
+        <%= link_to "View My Bookings", bookings_path , class: "nav-link" %>
         <%= link_to "+ New Notdog", new_notdog_path , class: "nav-link" %>
-        </li>
         <li class="nav-item dropdown">
           <% if current_user.photo.attached? %>
             <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>

@@ -59,6 +59,8 @@ ActiveRecord::Schema.define(version: 2020_07_18_160208) do
     t.string "taxonomy_name"
     t.string "taxonomy_fantasy_name"
     t.string "taxonomy_category"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["user_id"], name: "index_notdogs_on_user_id"
   end
 

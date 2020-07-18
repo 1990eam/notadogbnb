@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
-before_action :set_booking, only: [:show, :edit, :update]
+  before_action :set_booking, only: [:show, :edit, :update]
+
   def index
     @bookings = policy_scope(Booking).order(created_at: :desc)
   end
@@ -10,14 +11,21 @@ before_action :set_booking, only: [:show, :edit, :update]
 
   def new
     @booking = Booking.new
+    @notdog = params[:notdog_id]
     authorize @booking
   end
 
   def create
     @booking = Booking.new(booking_params)
     @booking.user = current_user
+    @booking.notdog = Notdog.find(params[:notdog_id])
+    @booking.price = @booking.notdog.cost_per_day * (@booking.end_date - @booking.start_date)
     authorize @booking
-    @booking.save
+    if @booking.save!
+      redirect_to bookings_path
+    else
+      render :new
+    end
   end
 
   def edit; end
@@ -33,11 +41,11 @@ before_action :set_booking, only: [:show, :edit, :update]
   private
 
   def booking_params
-    params.require(:booking).permit(:start_time, :end_time, :notdog, :user, :price)
+    params.require(:booking).permit(:start_date, :end_date, :notdog, :user, :price)
   end
 
   def set_booking
-    @booking = booking.find(params[:id])
+    @booking = Booking.find(params[:id])
     authorize @booking
   end
 end

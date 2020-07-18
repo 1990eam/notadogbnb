@@ -3,6 +3,14 @@ class NotdogsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
   def index
     @notdogs = policy_scope(Notdog)
+    @notdogs = Notdog.geocoded
+
+    @markers = @notdogs.map do |notdog|
+      {
+        lat: notdog.latitude,
+        lng: notdog.longitude
+      }
+    end
   end
 
   def show; end
