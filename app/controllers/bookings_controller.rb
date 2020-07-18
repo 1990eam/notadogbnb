@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
-before_action :set_booking, only: [:show, :edit, :update]
+  before_action :set_booking, only: [:show, :edit, :update]
+
   def index
     @bookings = policy_scope(Booking).order(created_at: :desc)
   end
@@ -10,6 +11,7 @@ before_action :set_booking, only: [:show, :edit, :update]
 
   def new
     @booking = Booking.new
+    @notdog = params[:notdog_id]
     authorize @booking
   end
 
@@ -33,7 +35,7 @@ before_action :set_booking, only: [:show, :edit, :update]
   private
 
   def booking_params
-    params.require(:booking).permit(:start_time, :end_time, :notdog, :user, :price)
+    params.require(:booking).permit(:start_date, :end_date, :notdog, :user, :price)
   end
 
   def set_booking
