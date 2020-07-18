@@ -14,12 +14,12 @@ class NotdogPolicy < ApplicationPolicy
   end
 
   def destroy?
-    user_owner
+    user_owner?
   end
 
   private
 
   def user_owner?
-    record.user == user ? true : false
+    record.owner == user
   end
 end
