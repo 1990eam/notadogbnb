@@ -36,9 +36,15 @@
         <h1>map placeholder</h1>
       </div>
 
+
+      <!-- Update & Delete -->
       <div>
         <% if policy(@notdog).destroy? %>
           <%= link_to "Delete", notdog_path(@notdog), method: :delete, data: { confirm: 'Are you certain you want to delete this?' }  %>
+        <% end %>
+
+        <% if policy(@notdog).update? %>
+          <%= link_to "Edit", edit_notdog_path(@notdog) %>
         <% end %>
       </div>
 
