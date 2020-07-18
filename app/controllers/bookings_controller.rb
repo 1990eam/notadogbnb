@@ -33,7 +33,7 @@ before_action :set_booking, only: [:show, :edit, :update]
   private
 
   def booking_params
-    params.require(:booking).permit(:time)
+    params.require(:booking).permit(:start_time, :end_time, :notdog, :user, :price)
   end
 
   def set_booking
