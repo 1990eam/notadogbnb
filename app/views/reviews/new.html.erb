@@ -1,0 +1,5 @@
+<%= simple_form_for [ @booking, @review ] do |f| %>
+  <%= f.input :user_review, as: :text, :label => "Review", placeholder: "Escribe una reseña sobre tu experiencia" %>
+  <%= f.input :user_score, label: "Score" %>
+  <%= f.submit "Submit review", class: "btn btn-primary" %>
+<% end %>
