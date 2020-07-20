@@ -9,6 +9,7 @@ class NotdogsController < ApplicationController
       {
         lat: notdog.latitude,
         lng: notdog.longitude
+        infoWindow: render_to_string(partial: "info_window", locals: { notdog: notdog })
       }
     end
   end
