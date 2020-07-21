@@ -2,7 +2,7 @@ class NotdogsController < ApplicationController
   before_action :set_notdog, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:index]
   def index
-    @notdogs = policy_scope(Notdog.where(owner: !current_user))
+    @notdogs = policy_scope(Notdog).order(created_at: :desc)
     @notdogs = Notdog.geocoded
 
     @markers = @notdogs.map do |notdog|
