@@ -30,6 +30,7 @@
         <p>Fantasy name: <%= @notdog.taxonomy_fantasy_name %></p>
         <p>Cost per day: <%= @notdog.cost_per_day %></p>
         <p>Location: <%= @notdog.address %></p>
+        <p>Reviews: <%= @ %></p>
       </div>
 
       <div class="map">
@@ -46,6 +47,9 @@
         <% if policy(@notdog).update? %>
           <%= link_to "Edit", edit_notdog_path(@notdog) %>
         <% end %>
+
+        <% if  %>
+          <%= link_to "Add a review", new_booking_review_path (@booking) %>
       </div>
 
     </div>

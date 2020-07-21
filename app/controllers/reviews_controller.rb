@@ -10,8 +10,10 @@ class ReviewsController < ApplicationController
     @booking = Booking.find(params[:booking_id])
     @review.booking = @booking
     authorize @review
-    @review.save
-    redirect_to notdog_path(@notdog)
+    if @review.save
+      redirect_to notdog_path(@notdog)
+    else
+      reder :new
   end
 
   private
