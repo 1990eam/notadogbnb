@@ -14,9 +14,10 @@ User.destroy_all
 Booking.destroy_all
 
 user = User.create!(email: "test@test.com", password: "test1234", name: "admin", address: "test", phone: "test")
+user = User.create!(email: "test2@test.com", password: "test1234", name: "regular user", address: "test", phone: "test")
 
 notdog = Notdog.new(name: "Kiss from a Rose", cost_per_day: "100",
-                    description: "Le gustan las pelotas", owner: User.first,
+                    description: "Le gustan las pelotas", owner: User.second,
                     taxonomy_name: "Seal", taxonomy_category: "Acuático",
                     taxonomy_fantasy_name: "Water Doggo",
                     address: "Av Corrientes 900, Buenos Aires, Argentina")
@@ -73,7 +74,8 @@ notdog.photo.attach(io:URI.open("https://source.unsplash.com/random/?#{notdog.ta
 notdog.save!
 
 notdog = Notdog.new(name: "Melvin", cost_per_day: "230",
-                    description: "No recomendable para personas con complejo de inferioridad", owner: User.first,
+                    description: "No recomendable para personas con complejo de inferioridad",
+                    owner: User.second,
                     taxonomy_name: "Giraffe", taxonomy_category: "Terrestre",
                     taxonomy_fantasy_name: "Tall Doggo",
                     address: "Dieciocho 161, Santiago, Región Metropolitana, Chile")
@@ -98,7 +100,7 @@ notdog.save!
 
 notdog = Notdog.new(name: "Princess Diana", cost_per_day: "110",
                     description: "Cargos extra si se le enseñan improperios o fragmentos del Manifiesto Comunista",
-                    owner: User.first,
+                    owner: User.second,
                     taxonomy_name: "Cockatiel", taxonomy_category: "Volador",
                     taxonomy_fantasy_name: "Copycat Doggo",
                     address: "Haflingerstraat, Paramaribo, Suriname")
