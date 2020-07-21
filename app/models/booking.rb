@@ -3,7 +3,7 @@ class Booking < ApplicationRecord
   belongs_to :user
   has_one :owner, through: :notdog
   validates :notdog, :start_date, :end_date, :user, presence: true
-  #validates :start_date_lower_than_end_date
+  validate :start_date_lower_than_end_date
 
   def start_date_lower_than_end_date
     if start_date > end_date
