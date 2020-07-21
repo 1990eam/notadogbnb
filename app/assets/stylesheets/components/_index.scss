@@ -2,4 +2,8 @@
 @import "alert";
 @import "avatar";
 @import "navbar";
-@import "banner"
+@import "banner";
+// >>>> Este import me rompe el autofit en el mapa
+// @import "map";
+
+
