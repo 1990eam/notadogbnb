@@ -59,3 +59,17 @@
   position: sticky;
   top: 0;
 }
+
+#main-index-div {
+  display: flex;
+}
+
+/*Smallest device*/
+@media (min-width: 100px) and (max-width: 768px) {
+  #main-index-div {
+    display: block;
+  }
+  #map {
+    width: 100vw;
+  }
+}

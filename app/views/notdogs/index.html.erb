@@ -1,6 +1,6 @@
-<div class="d-flex">
-    <h1 class="main-header">Welcome to a unique experience</h1>
+<div id="main-index-div">
   <div class="cards">
+    <h1 class="main-header">Welcome to a unique experience</h1>
     <% @notdogs.each do |notdog| %>
       <div class="card-notdog mb-3">
         <img src=<%= cl_image_path notdog.photo.key, height: 500, width: 700, crop: :fill %> >
@@ -21,7 +21,7 @@
     <% end %>
   </div>
   <div class="container" id="map"
-    style="width: 100%; height: 100vh;"
+    style="width: 40vw; height: 100vh;"
     data-markers="<%= @markers.to_json %>"
     data-mapbox-api-key="<%= ENV["MAPBOX_API_KEY"] %>">
   </div>
