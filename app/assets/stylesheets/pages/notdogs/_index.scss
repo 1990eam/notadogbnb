@@ -3,6 +3,16 @@
 
 .main-header {
   color: $logo-orange;
+  display: inline;
+}
+
+.cards {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 16px;
+  padding: 16px;
+    flex-wrap: wrap;
 }
 
 .card-notdog {
@@ -44,3 +54,22 @@
   width: 40px;
 }
 
+#map {
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}
+
+#main-index-div {
+  display: flex;
+}
+
+/*Smallest device*/
+@media (min-width: 100px) and (max-width: 768px) {
+  #main-index-div {
+    display: block;
+  }
+  #map {
+    width: 100vw;
+  }
+}

@@ -13,7 +13,8 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to notdog_path(@notdog)
     else
-      reder :new
+      render :new
+    end
   end
 
   private
