@@ -29,9 +29,11 @@ import "bootstrap";
 // import { initSelect2 } from '../components/init_select2';
 
 import { initMapbox } from '../plugins/init_mapbox';
+import { initAutocomplete } from '../plugins/init_autocomplete';
 import { loadDynamicBannerText } from '../components/banner';
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
+  initAutocomplete();
   loadDynamicBannerText();
 });

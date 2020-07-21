@@ -8,7 +8,9 @@ class NotdogsController < ApplicationController
     @markers = @notdogs.map do |notdog|
       {
         lat: notdog.latitude,
-        lng: notdog.longitude
+        lng: notdog.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { notdog: notdog }),
+        image_url: helpers.asset_url('logo')
       }
     end
   end
