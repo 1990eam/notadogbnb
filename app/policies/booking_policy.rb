@@ -6,7 +6,7 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def new?
-    create?
+    user.admin || record.notdog.owner != user
   end
 
   def create?
