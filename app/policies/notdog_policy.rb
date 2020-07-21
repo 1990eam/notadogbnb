@@ -1,7 +1,11 @@
 class NotdogPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      if user.nil? || user.admin?
+        scope.all
+      else
+        scope.where(owner: !user)
+      end
     end
   end
 
