@@ -10,7 +10,7 @@ class NotdogsController < ApplicationController
         lat: notdog.latitude,
         lng: notdog.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { notdog: notdog }),
-        image_url: helpers.asset_url('logo')
+        image_url: helpers.asset_url('notdog-marker')
       }
     end
   end
