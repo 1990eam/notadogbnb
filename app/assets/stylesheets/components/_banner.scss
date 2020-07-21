@@ -2,7 +2,7 @@
   background-size: cover;
   background-position: center;
   padding: 150px 0;
-  height: 95vh;
+  height: 92.3vh;
 }
 
 .banner h1 {
@@ -13,15 +13,20 @@
   font-weight: bold;
 }
 
+#banner-typed-text {
+  display: inline-block;
+}
+
 .btn-flat {
   color: white;
   padding: 8px 24px;
   border-radius: 4px;
-  background: #bb3b0e;
-  transition: background 0.3s ease;
+  background: $logo-orange;
+  opacity: 0.7;
+  transition: 0.3s ease;
 }
 
 .btn-flat:hover {
-  background: #708160;
+  opacity: 1;
   color: white;
 }
