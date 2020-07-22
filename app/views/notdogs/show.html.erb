@@ -16,7 +16,9 @@
             </div>
 
             <div class="book-button">
-             <%= link_to "Book this Notdog", new_notdog_booking_path(@notdog), class: "btn btn-primary book-button" %>
+              <% if @notdog.owner != current_user %>
+                <%= link_to "Book this Notdog", new_notdog_booking_path(@notdog), class: "btn btn-primary book-button" %>
+              <% end %>
             </div>
           </div>
     </div>
