@@ -22,10 +22,18 @@ class MessagesController < ApplicationController
     end
   end
 
+
+  def edit
+    @notdog = Notdog.find(params[:notdog_id])
+    @message = Message.find(params[:id])
+    @message.notdog = @notdog
+    authorize @message
+  end
+
   private
 
   def message_params
-    params.require(:message).permit(:body, :notdog_id)
+    params.require(:message).permit(:body, :notdog_id, :answer, :id)
   end
 
 

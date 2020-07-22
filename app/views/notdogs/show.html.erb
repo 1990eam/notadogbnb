@@ -61,11 +61,20 @@
         <%= link_to "Unsure? Ask a question", new_notdog_message_path(@notdog) %>
 
         <% @messages.each do |message| %>
-          <%= message.body %>
+
+        <div class="interaction">
+
+            <%= message.body %>
+
+            <% if policy(message).update? %>
+              <%= link_to "Reply", edit_notdog_message_path(@notdog, message) %>
+            <% end %>
+
+        </div>
+
+
+
         <% end %>
-
-
-
       </div>
     </div>
   </div>

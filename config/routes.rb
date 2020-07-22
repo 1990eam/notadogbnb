@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :notdogs do
     resources :bookings, only: [:new, :create]
-    resources :messages, only: [:new, :create]
+    resources :messages, only: [:new, :create, :edit, :update]
   end
   resources :bookings, only: [:index, :show, :edit, :update]
 end
@@ -14,6 +14,7 @@ end
 # new_notdog_booking GET    /notdogs/:notdog_id/bookings/new(.:format)         bookings#new
 #    notdog_messages POST   /notdogs/:notdog_id/messages(.:format)             messages#create
 # new_notdog_message GET    /notdogs/:notdog_id/messages/new(.:format)         messages#new
+# edit_notdog_message GET    /notdogs/:notdog_id/messages/:id/edit(.:format)   messages#edit
 #            notdogs GET    /notdogs(.:format)                                 notdogs#index
 #                    POST   /notdogs(.:format)                                 notdogs#create
 #         new_notdog GET    /notdogs/new(.:format)                             notdogs#new
