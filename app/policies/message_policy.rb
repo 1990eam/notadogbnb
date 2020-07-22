@@ -19,6 +19,7 @@ class MessagePolicy < ApplicationPolicy
   end
 
   def destroy?
-    record.user == user
+    notdog = Notdog.find_by(id: record.notdog_id)
+    record.user == user || notdog.owner == user
   end
 end
