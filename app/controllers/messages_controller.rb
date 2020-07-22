@@ -9,7 +9,23 @@ class MessagesController < ApplicationController
   end
 
   def create
+    @message = Message.new(message_params)
+    @notdog = Notdog.find(params[:notdog_id])
+    @message.notdog = @notdog
+    @message.user = current_user
+    authorize @message
 
+    if @message.save!
+      redirect_to notdog_path(@notdog)
+    else
+      render :new
+    end
+  end
+
+  private
+
+  def message_params
+    params.require(:message).permit(:body, :notdog_id)
   end
 
 
