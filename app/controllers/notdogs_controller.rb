@@ -15,6 +15,14 @@ class NotdogsController < ApplicationController
   end
 
   def show
+    @markers =
+      [{
+        lat: @notdog.latitude,
+        lng: @notdog.longitude,
+        # infoWindow: render_to_string(partial: "info_window", locals: { notdog: @notdog }),
+        image_url: helpers.asset_url('notdog-marker.png')
+      }]
+
     @messages = @notdog.messages
   end
 
