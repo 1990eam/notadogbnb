@@ -30,6 +30,19 @@ class MessagesController < ApplicationController
     authorize @message
   end
 
+  def update
+    @notdog = Notdog.find(params[:notdog_id])
+    @message = Message.find(params[:id])
+    @message.update(message_params)
+    authorize @message
+
+    if @message.save
+      redirect_to @notdog
+    else
+      render :edit
+    end
+  end
+
   private
 
   def message_params

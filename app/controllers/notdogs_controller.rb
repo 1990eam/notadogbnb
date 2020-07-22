@@ -19,7 +19,6 @@ class NotdogsController < ApplicationController
     @messages = @notdog.messages
   end
 
-
   def new
     @notdog = Notdog.new
     authorize @notdog

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :notdogs do
     resources :bookings, only: [:new, :create]
-    resources :messages, only: [:new, :create, :edit, :update]
+    resources :messages, only: [:new, :create, :edit, :update, :destroy]
   end
   resources :bookings, only: [:index, :show, :edit, :update]
 end
