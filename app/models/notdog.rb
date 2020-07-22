@@ -5,4 +5,5 @@ class Notdog < ApplicationRecord
   validates :owner, :cost_per_day, :description, :name, :address, presence: true
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+  has_many :messages
 end
