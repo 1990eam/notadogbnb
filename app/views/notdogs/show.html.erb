@@ -14,13 +14,12 @@
               </div>
                   <p class="card-notdog-pricing">USD$<%= @notdog.cost_per_day %></p>
             </div>
-            <% if @notdog.owner != current_user %>
+
             <div class="book-button">
-             <%= link_to "Book this Notdog", new_notdog_booking_path(@notdog), class: "btn btn-primary book-button" %>
+              <% if @notdog.owner != current_user %>
+                <%= link_to "Book this Notdog", new_notdog_booking_path(@notdog), class: "btn btn-primary book-button" %>
+              <% end %>
             </div>
-            <% else %>
-              <div></div>
-            <% end %>
           </div>
     </div>
 
