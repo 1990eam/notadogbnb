@@ -60,7 +60,9 @@
       <div class="messages">
         <%= link_to "Unsure? Ask a question", new_notdog_message_path(@notdog) %>
 
-
+        <% @messages.each do |message| %>
+          <%= message.body %>
+        <% end %>
       </div>
     </div>
   </div>

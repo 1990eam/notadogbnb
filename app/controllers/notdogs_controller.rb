@@ -15,7 +15,10 @@ class NotdogsController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @messages = @notdog.messages
+  end
+
 
   def new
     @notdog = Notdog.new
