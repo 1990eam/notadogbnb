@@ -10,3 +10,24 @@
 .navbar-lewagon .navbar-brand img {
  height: 5vh;
 }
+
+/*Smallest device*/
+@media (min-width: 100px) and (max-width: 575px) {
+  .navbar-lewagon .navbar-brand img {
+    height: 10vh;
+  }
+}
+
+/*Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+  .navbar-lewagon .navbar-brand img {
+    height: 7.5vh;
+  }
+}
+
+/*Medium devices (tablets, 768px and up)*/
+@media (min-width: 1200px) {
+  .navbar-lewagon .navbar-brand img {
+    height: 5vh;
+  }
+}
