@@ -2,8 +2,8 @@
     <div class="form-group">
       <%= simple_form_for @booking, url: notdog_bookings_path(@notdog) do |f| %>
       <%= f.error_notification %>
-      <%= f.input :start_date, placeholder: "Fecha de Inicio" %>
-      <%= f.input :end_date, placeholder: "Fecha de Finalización" %>
+      <%= f.input :start_date, placeholder: "Fecha de Inicio", as: :date, html5: true %>
+      <%= f.input :end_date, placeholder: "Fecha de Finalización", as: :date, html5: true %>
       <%= f.button :submit, class: "btn-primary" %>
       <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
     <% end %>
