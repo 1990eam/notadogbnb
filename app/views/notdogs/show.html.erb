@@ -16,7 +16,9 @@
             </div>
 
             <div class="book-button">
-             <%= link_to "Book this Notdog", new_notdog_booking_path(@notdog), class: "btn btn-primary book-button" %>
+              <% if @notdog.owner != current_user %>
+                <%= link_to "Book this Notdog", new_notdog_booking_path(@notdog), class: "btn btn-primary book-button" %>
+              <% end %>
             </div>
           </div>
     </div>
@@ -50,7 +52,43 @@
       </div>
 
     </div>
+
   </div>
 </div>
+
+<div class="container messages-container">
+  <div class="row messages-row">
+    <div class="col-lg-6 col-6">
+      <h2>Q&A</h2>
+      <div class="messages">
+        <%= link_to "Unsure? Ask a question", new_notdog_message_path(@notdog) %>
+
+        <% @messages.each do |message| %>
+
+        <div class="interaction">
+
+            <div class="body">
+              <%= message.body %>
+              <% if policy(message).update? %>
+                <%= link_to "Reply", edit_notdog_message_path(@notdog, message) %>
+              <% end %>
+
+              <% if policy(message).destroy? %>
+                <%= link_to "Delete", notdog_message_path(message), method: :delete, data: { confirm: 'Are you certain you want to delete this?' }  %>
+              <% end %>
+            </div>
+
+            <div class="answer">
+              <%= message.answer %>
+            </div>
+
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
 

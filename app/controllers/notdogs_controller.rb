@@ -22,6 +22,8 @@ class NotdogsController < ApplicationController
         # infoWindow: render_to_string(partial: "info_window", locals: { notdog: @notdog }),
         image_url: helpers.asset_url('notdog-marker.png')
       }]
+
+    @messages = @notdog.messages
   end
 
   def new

@@ -1,7 +1,7 @@
 <div class="container">
   <h1 class="main-header">My bookings</h1>
   <div class='row'>
-      <% @bookings.each do |booking| %>
+    <% @bookings.each do |booking| %>
       <div class="col-12">
         <div class="card-booking mb-3">
             <img src=<%= cl_image_path booking.notdog.photo.key, height: 500, width: 700, crop: :fill %> >
