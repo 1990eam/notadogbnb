@@ -74,3 +74,43 @@
   top: -20px;
   width: 40px;
 }
+
+
+// Messages
+
+.messages {
+
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+
+
+  h2 {
+    text-align: center;
+
+  }
+
+
+
+}
+
+.interaction {
+
+  border: 1px solid black;
+
+  // Pregunta
+  .message-body {
+
+    background-color: #f9ffa5;
+
+
+  }
+
+  // Respuesta
+  .message-answer {
+    text-align: end;
+    background-color: #e5e5e5;
+
+  }
+}
+
