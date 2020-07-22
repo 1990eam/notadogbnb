@@ -70,19 +70,31 @@
         <div class="interaction">
 
             <div class="message-body">
-              <%= message.body %> <span class="created-at">(<%= message.created_at %>)</span>
-              <% if policy(message).update? %>
-                <%= link_to "Reply", edit_notdog_message_path(@notdog, message) %>
-              <% end %>
+              <%= message.body %>
 
-              <% if policy(message).destroy? %>
-                <%= link_to "Delete question", notdog_message_path(message), method: :delete, data: { confirm: 'Are you certain you want to delete this?' }  %>
-              <% end %>
+              <div class="message-body-infos">
+
+                <span class="created-at">(<%= message.created_at %>)</span>
+                <% if policy(message).update? %>
+                  <%= link_to "Reply", edit_notdog_message_path(@notdog, message) %>
+                <% end %>
+
+                <% if policy(message).destroy? %>
+                  <%= link_to "Delete question", notdog_message_path(message), method: :delete, data: { confirm: 'Are you certain you want to delete this?' }  %>
+                <% end %>
+
+              </div>
             </div>
 
             <div class="message-answer">
-              <%= message.answer %> <span class="updated-at">(<%= message.updated_at %>)</span>
+              <div>
+                <i class="fas fa-level-up-alt flecha-respuesta"></i>  <%= message.answer %>
+              </div>
+              <div class="message-answer-infos">
+                <span class="updated-at">(<%= message.updated_at %>)</span>
+              </div>
             </div>
+
 
         </div>
         <% end %>

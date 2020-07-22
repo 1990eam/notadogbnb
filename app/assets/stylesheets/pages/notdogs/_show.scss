@@ -96,6 +96,8 @@
 
 .interaction {
 
+  background-color: #e5e5e5;
+
   .created-at {
 
     color: #dbdbdb;
@@ -114,14 +116,25 @@
   .message-body {
 
     background-color: #fffddb;
-
+    display: flex;
+    justify-content: space-between;
 
   }
 
   // Respuesta
   .message-answer {
-    text-align: end;
+
+    margin-left: 1rem;
     background-color: #e5e5e5;
+    display: flex;
+    justify-content: space-between;
+
+  .flecha-respuesta {
+
+    transform: rotate(90deg);
+
+
+  }
 
   }
 }
