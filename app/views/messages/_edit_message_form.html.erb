@@ -1,0 +1,9 @@
+<div class="container">
+  <h1>Reply:</h1>
+  <div class="form-group">
+    <%= simple_form_for [ @notdog, @message ] do |f| %>
+      <%= f.input :answer %>
+      <%= f.submit "Submit", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
