@@ -96,12 +96,24 @@
 
 .interaction {
 
+  .created-at {
+
+    color: #dbdbdb;
+
+  }
+
+  .updated-at {
+
+    color: #c4c4c4;
+
+  }
+
   border: 1px solid black;
 
   // Pregunta
   .message-body {
 
-    background-color: #f9ffa5;
+    background-color: #fffddb;
 
 
   }

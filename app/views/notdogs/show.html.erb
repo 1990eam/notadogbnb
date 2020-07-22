@@ -70,7 +70,7 @@
         <div class="interaction">
 
             <div class="message-body">
-              <%= message.body %>
+              <%= message.body %> <span class="created-at">(<%= message.created_at %>)</span>
               <% if policy(message).update? %>
                 <%= link_to "Reply", edit_notdog_message_path(@notdog, message) %>
               <% end %>
@@ -81,7 +81,7 @@
             </div>
 
             <div class="message-answer">
-              <%= message.answer %>
+              <%= message.answer %> <span class="updated-at">(<%= message.updated_at %>)</span>
             </div>
 
         </div>
