@@ -71,8 +71,8 @@ ActiveRecord::Schema.define(version: 2020_07_21_213554) do
     t.integer "owner_score"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "{:reference=>:booking, :index=>true}_id"
-    t.index ["{:reference=>:booking, :index=>true}_id"], name: "index_reviews_on_{:reference=>:booking, :index=>true}_id"
+    t.bigint "booking_id"
+    t.index ["booking_id"], name: "index_reviews_on_booking_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -95,4 +95,5 @@ ActiveRecord::Schema.define(version: 2020_07_21_213554) do
   add_foreign_key "bookings", "notdogs"
   add_foreign_key "bookings", "users"
   add_foreign_key "notdogs", "users"
+  add_foreign_key "reviews", "bookings"
 end

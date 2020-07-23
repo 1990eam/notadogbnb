@@ -9,6 +9,7 @@
             <p class="text-black-50"><%= notdog.taxonomy_fantasy_name %> (<%= notdog.taxonomy_name %>)</p>
             <h2><%= link_to notdog.name, notdog_path(notdog) %></h2>
             <p><%= notdog.description %></p>
+            <p> ⭐️ <%= notdog.average_score %></p>
           </div>
             <p class="card-notdog-pricing">USD$<%= notdog.cost_per_day %></p>
           <% if notdog.owner.photo.attached? %>

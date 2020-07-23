@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create]
   end
   resources :bookings, only: [:index, :show, :edit, :update] do
-    resources :reviews, only: [ :new, :create ]
+    resources :reviews, only: [ :show, :new, :create ]
   end
 end
 
@@ -43,3 +43,5 @@ end
 #                  booking GET    /bookings/:id(.:format)                      bookings#show
 #                          PATCH  /bookings/:id(.:format)                      bookings#update
 #                          PUT    /bookings/:id(.:format)                      bookings#update
+#          booking_reviews POST   /bookings/:booking_id/reviews(.:format)      reviews#create
+#       new_booking_review GET    /bookings/:booking_id/reviews/new(.:format)  reviews#new

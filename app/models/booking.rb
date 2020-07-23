@@ -2,6 +2,7 @@ class Booking < ApplicationRecord
   belongs_to :notdog
   belongs_to :user
   has_one :owner, through: :notdog
+  has_one :review
   validates :notdog, :start_date, :end_date, :user, presence: true
   #validates :start_date_lower_than_end_date
 
