@@ -1,6 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,4 +10,32 @@
 
 .navbar-lewagon .navbar-brand img {
  height: 5vh;
+}
+
+.scrolled-down{
+   transform:translateY(-100%); transition: all 0.3s ease-in-out;
+}
+.scrolled-up{
+   transform:translateY(0); transition: all 0.3s ease-in-out;
+}
+
+/*Smallest device*/
+@media (min-width: 100px) and (max-width: 575px) {
+  .navbar-lewagon .navbar-brand img {
+    height: 10vh;
+  }
+}
+
+/*Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+  .navbar-lewagon .navbar-brand img {
+    height: 7.5vh;
+  }
+}
+
+/*Medium devices (tablets, 768px and up)*/
+@media (min-width: 1200px) {
+  .navbar-lewagon .navbar-brand img {
+    height: 5vh;
+  }
 }

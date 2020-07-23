@@ -32,8 +32,10 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { initMapboxForCards } from '../plugins/init_mapbox';
 import { initAutocomplete } from '../plugins/init_autocomplete';
 import { loadDynamicBannerText } from '../components/banner';
+import { initUpdateNavbarOnScroll } from '../components/navbar';
 
 document.addEventListener('turbolinks:load', () => {
+  initUpdateNavbarOnScroll();
   initMapbox();
   initMapboxForCards();
   initAutocomplete();

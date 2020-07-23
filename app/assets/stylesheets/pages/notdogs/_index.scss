@@ -7,51 +7,19 @@
 }
 
 .cards {
-  flex-grow: 1;
   display: grid;
   grid-template-columns: 1fr;
-  grid-gap: 16px;
-  padding: 16px;
-    flex-wrap: wrap;
-}
-
-.card-notdog {
-  overflow: hidden;
+  grid-gap: 0px;
+  padding: 24px;
+  flex-wrap: wrap;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-}
-
-.card-notdog > img {
-  height: 200px;
-  width: 100%;
-  object-fit: cover;
-}
-
-.card-notdog h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
-}
-
-.card-notdog p {
-  font-size: 12px;
-  opacity: .7;
-  margin: 0;
-}
-
-.card-notdog .card-notdog-infos {
-  padding: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  position: relative;
-}
-
-.card-notdog-infos .card-notdog-user {
-  position: absolute;
-  right: 16px;
-  top: -20px;
-  width: 40px;
+  h1 {
+    font-size: 2.3rem;
+  }
+  a {
+    text-decoration: none;
+    color: black;
+  }
 }
 
 #map {
@@ -65,7 +33,7 @@
 }
 
 /*Smallest device*/
-@media (min-width: 100px) and (max-width: 768px) {
+@media (min-width: 100px) and (max-width: 1024px) {
   #main-index-div {
     display: block;
   }

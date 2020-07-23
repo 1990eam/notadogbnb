@@ -2,23 +2,19 @@
   <h1 class="main-header">My booking</h1>
   <div class="row show-row">
     <div class="col-lg-3 col-6">
-
       <!-- Card -->
-          <div class="card-notdog mb-3">
-            <img src=<%= cl_image_path @booking.notdog.photo.key, height: 500, width: 700, crop: :fill %> >
-            <div class="card-notdog-infos">
-              <div>
-                <p class="text-black-50"><%= @booking.notdog.taxonomy_fantasy_name %> (<%= @booking.notdog.taxonomy_name %>)</p>
-                <h2><%= link_to @booking.notdog.name, notdog_path(@booking.notdog) %></h2>
-                <p><%= @booking.notdog.description %></p>
-              </div>
-            </div>
+      <div class="card-notdog mb-3">
+        <img src=<%= cl_image_path @booking.notdog.photo.key, height: 500, width: 700, crop: :fill %> >
+        <div class="card-notdog-infos">
+          <div>
+            <p class="text-black-50"><%= @booking.notdog.taxonomy_fantasy_name %> (<%= @booking.notdog.taxonomy_name %>)</p>
+            <h2><%= link_to @booking.notdog.name, notdog_path(@booking.notdog) %></h2>
+            <p><%= @booking.notdog.description %></p>
           </div>
-    </div>s
-
-      <!-- Details & Map -->
+        </div>
+      </div>
+    </div>
     <div class="infos">
-
       <div class="col-log-4 details">
         <h2>Other details:</h2>
         <p>Owner: <%= @booking.notdog.owner.name %> </p>
@@ -31,19 +27,15 @@
         <%= link_to "Add a Review", new_booking_review_path(@booking) %>
       </div>
       </div>
-
       <div class="map">
         <h1>map placeholder</h1>
       </div>
-
-
       <!-- Update & Delete -->
       <div>
         <% if policy(@booking).destroy? %>
-          <%= link_to "Delete this booking", notdog_path(@notdog), method: :delete, data: { confirm: 'Are you certain you want to delete this?' }  %>
+        <%= link_to "Delete this booking", notdog_path(@notdog), method: :delete, data: { confirm: 'Are you certain you want to delete this?' }  %>
         <% end %>
       </div>
-
     </div>
   </div>
 </div>
