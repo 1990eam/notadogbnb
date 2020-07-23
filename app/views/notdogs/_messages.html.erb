@@ -1,0 +1,47 @@
+<!-- Messages Q&A -->
+<div class="container show-container">
+  <div class="row show-row">
+
+    <div class="messages">
+      <h2>Q&A</h2>
+
+        <% if policy(@notdog).cannot_ask_itself_a_question? %>
+        <%= link_to "Unsure? Ask a question", new_notdog_message_path(@notdog) %>
+        <% end %>
+
+        <% @messages.each do |message| %>
+
+        <div class="interaction">
+
+            <div class="message-body">
+              <%= message.body %>
+
+              <div class="message-body-infos">
+                <span class="created-at">(<%= time_ago_in_words(message.created_at, include_seconds: true) %>) ago</span>
+                <% if policy(message).update? %>
+                  <%= link_to "Reply", edit_notdog_message_path(@notdog, message) %>
+                <% end %>
+                |
+                <% if policy(message).destroy? %>
+                  <%= link_to "Delete question", notdog_message_path(@notdog, message), method: :delete, data: { confirm: 'Are you certain you want to delete this?' }  %>
+                <% end %>
+
+              </div>
+            </div>
+
+            <!-- Answer logic -->
+            <% if message.answer.present? %>
+              <div class="message-answer">
+                <div>
+                  <i class="fas fa-level-up-alt flecha-respuesta"></i>  <%= message.answer %>
+                </div>
+                <div class="message-answer-infos">
+                  <span class="updated-at">(<%= time_ago_in_words(message.updated_at, include_seconds: true) %>) ago</span>
+                </div>
+              </div>
+            <% end %>
+        </div>
+        <% end %>
+    </div>
+  </div>
+</div>

@@ -5,6 +5,10 @@ class MessagePolicy < ApplicationPolicy
     end
   end
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
   def new?
     true
   end
