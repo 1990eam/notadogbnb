@@ -1,0 +1,52 @@
+.card-notdog:last-of-type { //last-child?
+  border-bottom: none;
+}
+
+.card-notdog {
+  overflow: hidden;
+  background: white;
+  display: flex;
+  height: 240px;
+  position: relative;
+}
+
+.card-notdog-img {
+  border-radius: 2%;
+  height: 100%;
+}
+
+.card-notdog h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
+  color: $logo-orange;
+}
+
+.card-notdog p {
+  font-size: 1rem;
+  opacity: .7;
+  margin: 0;
+}
+
+.card-notdog-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-grow: 1;
+}
+
+.card-notdog-pricing:hover {
+  text-decoration: underline;
+}
+
+.card-notdog-infos div > h2:hover {
+  text-decoration: underline;
+}
+
+.card-notdog-user {
+  right: 16px;
+  top: 16px;
+  width: 40px;
+  position: absolute;
+}

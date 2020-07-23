@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top">
   <% if user_signed_in? %>
     <%= link_to notdogs_path, class: "navbar-brand" do %>
       <%= image_tag "logo.png" %>
@@ -17,6 +17,10 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
+      <% if current_user.notdogs.count > 0 %>
+        <%= link_to "My Notdogs", "#" , class: "nav-link" %>
+        <%= link_to "My Booked Notdogs", "#" , class: "nav-link" %>
+      <% end %>
         <%= link_to "View My Bookings", bookings_path , class: "nav-link" %>
         <%= link_to "+ New Notdog", new_notdog_path , class: "nav-link" %>
         <li class="nav-item dropdown">
@@ -30,6 +34,9 @@
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
+        <div class="navbar-text ml-2">
+            <%= current_user.name %>
+          </div>
       <% else %>
         <li class="nav-item d-flex">
           <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %>
