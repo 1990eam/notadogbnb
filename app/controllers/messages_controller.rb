@@ -43,6 +43,12 @@ class MessagesController < ApplicationController
     end
   end
 
+  def destroy
+    @message = Message.find(params[:id])
+    authorize @message
+    @message.delete
+  end
+
   private
 
   def message_params
