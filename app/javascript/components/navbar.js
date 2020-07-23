@@ -6,7 +6,6 @@ const initUpdateNavbarOnScroll = () => {
     var last_scroll_top = 0;
     $(window).on('scroll', function() {
         var scroll_top = window.scrollY;
-        console.log(scroll_top);
         if(scroll_top > last_scroll_top && scroll_top > 80) {
             navbar.classList.add('scrolled-down');
             navbar.classList.remove('scrolled-up');
