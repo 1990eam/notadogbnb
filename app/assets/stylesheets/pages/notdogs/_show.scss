@@ -74,4 +74,66 @@
   top: -20px;
   width: 40px;
 }
- */
+*/
+// Messages
+
+.messages {
+
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+
+
+  h2 {
+    text-align: center;
+
+  }
+
+
+
+}
+
+.interaction {
+
+  background-color: #e5e5e5;
+
+  .created-at {
+
+    color: #dbdbdb;
+
+  }
+
+  .updated-at {
+
+    color: #c4c4c4;
+
+  }
+
+  border: 1px solid black;
+
+  // Pregunta
+  .message-body {
+
+    background-color: #fffddb;
+    display: flex;
+    justify-content: space-between;
+
+  }
+
+  // Respuesta
+  .message-answer {
+
+    margin-left: 1rem;
+    background-color: #e5e5e5;
+    display: flex;
+    justify-content: space-between;
+
+  .flecha-respuesta {
+
+    transform: rotate(90deg);
+
+
+  }
+
+  }
+}
