@@ -5,10 +5,11 @@ class MessagePolicy < ApplicationPolicy
     end
   end
 
-  # Un dueño no puede hacerse una pregunta a si mismo
+
+
+
   def new?
-    notdog = Notdog.find_by(id: record[0]["notdog_id"])
-    notdog.owner != user
+    true
   end
 
   def create?

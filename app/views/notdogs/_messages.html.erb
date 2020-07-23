@@ -5,7 +5,9 @@
     <div class="messages">
       <h2>Q&A</h2>
 
-        <% if policy(@messages).new? %>
+
+        <% if policy(@notdog).cannot_ask_itself_a_question? %>
+
         <%= link_to "Unsure? Ask a question", new_notdog_message_path(@notdog) %>
         <% end %>
 

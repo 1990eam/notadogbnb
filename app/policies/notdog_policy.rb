@@ -21,6 +21,11 @@ class NotdogPolicy < ApplicationPolicy
     user_owner?
   end
 
+  # Un dueño no puede hacerse una pregunta a si mismo
+  def cannot_ask_itself_a_question?
+    !user_owner?
+  end
+
   private
 
   def user_owner?
