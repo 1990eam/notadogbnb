@@ -75,6 +75,17 @@ ActiveRecord::Schema.define(version: 2020_07_22_202108) do
     t.index ["user_id"], name: "index_notdogs_on_user_id"
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.text "user_review"
+    t.integer "user_score"
+    t.string "owner_review"
+    t.integer "owner_score"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "booking_id"
+    t.index ["booking_id"], name: "index_reviews_on_booking_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -97,4 +108,5 @@ ActiveRecord::Schema.define(version: 2020_07_22_202108) do
   add_foreign_key "messages", "notdogs"
   add_foreign_key "messages", "users"
   add_foreign_key "notdogs", "users"
+  add_foreign_key "reviews", "bookings"
 end

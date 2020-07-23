@@ -24,7 +24,7 @@ class NotdogsController < ApplicationController
       }]
     # Q&A
     @messages = @notdog.messages
-    @from_time = Time.now
+    @reviews = @notdog.reviews
   end
 
   def new
