@@ -63,7 +63,10 @@
 
     <div class="messages">
       <h2>Q&A</h2>
+
+        <% if policy(@messages).new? %>
         <%= link_to "Unsure? Ask a question", new_notdog_message_path(@notdog) %>
+        <% end %>
 
         <% @messages.each do |message| %>
 
@@ -85,14 +88,17 @@
               </div>
             </div>
 
-            <div class="message-answer">
-              <div>
-                <i class="fas fa-level-up-alt flecha-respuesta"></i>  <%= message.answer %>
+            <!-- Answer logic -->
+            <% if message.answer.present? %>
+              <div class="message-answer">
+                <div>
+                  <i class="fas fa-level-up-alt flecha-respuesta"></i>  <%= message.answer %>
+                </div>
+                <div class="message-answer-infos">
+                  <span class="updated-at">(<%= time_ago_in_words(message.updated_at, include_seconds: true) %>) ago</span>
+                </div>
               </div>
-              <div class="message-answer-infos">
-                <span class="updated-at">(<%= time_ago_in_words(message.updated_at, include_seconds: true) %>) ago</span>
-              </div>
-            </div>
+            <% end %>
 
 
         </div>
