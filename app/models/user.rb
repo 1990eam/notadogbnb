@@ -8,4 +8,5 @@ class User < ApplicationRecord
   has_many :reservations, through: :notdogs, source: :bookings
   has_one_attached :photo
   validates :email, uniqueness: true
+  has_many :reviews, through: :bookings, dependent: :destroy
 end

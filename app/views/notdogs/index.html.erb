@@ -12,7 +12,8 @@
               <h2><%= notdog.name %></h2>
               <p><%= notdog.description %></p>
               <% if false #codigo para la reviews de amy...%>
-                <% #codigo para las reviews de amy... %>
+               <div id="stars"></div>
+                <p><i class="fas fa-star" style="color: #ffcd3c"></i> <%= notdog.average_score %></p>
               <% else %>
                 <p>No reviews yet 😞</p>
               <% end %>

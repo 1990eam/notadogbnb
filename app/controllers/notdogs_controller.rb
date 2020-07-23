@@ -24,6 +24,7 @@ class NotdogsController < ApplicationController
       }]
 
     @messages = @notdog.messages
+    @reviews = @notdog.reviews
   end
 
   def new

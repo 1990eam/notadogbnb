@@ -11,7 +11,10 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
-    @notdog = params[:notdog_id]
+    @notdog = Notdog.find(params[:notdog_id].to_i)
+    @booking.notdog = @notdog
+    # @notdog = params[:notdog_id]
+    authorize @notdog
     authorize @booking
   end
 

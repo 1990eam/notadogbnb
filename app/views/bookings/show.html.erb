@@ -14,7 +14,6 @@
         </div>
       </div>
     </div>
-    <!-- Details & Map -->
     <div class="infos">
       <div class="col-log-4 details">
         <h2>Other details:</h2>
@@ -24,6 +23,9 @@
         <p>Total price: USD$<%= @booking.price %></p>
         <p>Start date: <%= @booking.start_date %></p>
         <p>End date: <%= @booking.end_date %></p>
+        <div>
+        <%= link_to "Add a Review", new_booking_review_path(@booking) %>
+      </div>
       </div>
       <div class="map">
         <h1>map placeholder</h1>
