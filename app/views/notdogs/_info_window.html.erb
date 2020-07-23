@@ -1,2 +1,9 @@
-<h2><%= notdog.name %></h2>
-<p><%= notdog.address %></p>
+<div class="card-trip">
+  <img src=<%= cl_image_path notdog.photo.key, height: 150, width: 210, crop: :fill %> >
+  <div class="card-notdog-infos">
+    <div>
+      <h2><%= notdog.name %></h2>
+      <p><%= notdog.address %></p>
+    </div>
+  </div>
+</div>

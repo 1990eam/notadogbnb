@@ -2,20 +2,29 @@ class NotdogsController < ApplicationController
   before_action :set_notdog, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:index]
   def index
-    @notdogs = policy_scope(Notdog).order(created_at: :desc)
-    @notdogs = Notdog.geocoded
+    @notdogs = policy_scope(Notdog).order(name: :asc).geocoded
 
     @markers = @notdogs.map do |notdog|
       {
         lat: notdog.latitude,
         lng: notdog.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { notdog: notdog }),
-        image_url: helpers.asset_url('notdog-marker')
+        image_url: helpers.asset_url('notdog-marker.png')
       }
     end
   end
 
-  def show; end
+  def show
+    @markers =
+      [{
+        lat: @notdog.latitude,
+        lng: @notdog.longitude,
+        # infoWindow: render_to_string(partial: "info_window", locals: { notdog: @notdog }),
+        image_url: helpers.asset_url('notdog-marker.png')
+      }]
+
+    @messages = @notdog.messages
+  end
 
   def new
     @notdog = Notdog.new
