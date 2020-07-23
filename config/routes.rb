@@ -5,9 +5,10 @@ Rails.application.routes.draw do
   resources :notdogs do
     resources :bookings, only: [:new, :create]
     resources :messages, only: [:new, :create, :edit, :update, :destroy]
+    resources :reviews, only: [:index]
   end
   resources :bookings, only: [:index, :show, :edit, :update] do
-    resources :reviews, only: [ :show, :new, :create ]
+    resources :reviews, only: [ :new, :create ]
   end
 end
 

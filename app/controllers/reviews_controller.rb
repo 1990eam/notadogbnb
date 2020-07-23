@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
-
-  def show
+  def index
     @reviews = policy_scope(Review)
+    @reviews = Notdog.find(params[:notdog_id])
   end
 
   def new
