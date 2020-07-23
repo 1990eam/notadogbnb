@@ -19,10 +19,15 @@
    transform:translateY(0); transition: all 0.3s ease-in-out;
 }
 
+
+
 /*Smallest device*/
 @media (min-width: 100px) and (max-width: 575px) {
   .navbar-lewagon .navbar-brand img {
     height: 10vh;
+  }
+  .navbar-invisible-div {
+    height: 12.5vh;
   }
 }
 
@@ -31,11 +36,17 @@
   .navbar-lewagon .navbar-brand img {
     height: 7.5vh;
   }
+    .navbar-invisible-div {
+    height: 10vh;
+  }
 }
 
 /*Medium devices (tablets, 768px and up)*/
 @media (min-width: 1200px) {
   .navbar-lewagon .navbar-brand img {
     height: 5vh;
+  }
+  .navbar-invisible-div {
+    height: 7.5vh;
   }
 }

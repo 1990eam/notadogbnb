@@ -1,6 +1,6 @@
 <div class="container">
     <div class="form-group">
-      <%= simple_form_for @booking, url: notdog_bookings_path(@notdog) do |f| %>
+      <%= simple_form_for [@notdog, @booking] do |f| %>
       <%= f.error_notification %>
       <%= f.input :start_date, placeholder: "Fecha de Inicio", as: :date, html5: true %>
       <%= f.input :end_date, placeholder: "Fecha de Finalización", as: :date, html5: true %>
@@ -10,15 +10,3 @@
     </div>
 </div>
 
-
-<% if @booking.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@booking.errors.count, "error") %> prohibited this article from being saved:</h2>
-
-    <ul>
-    <% @booking.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
