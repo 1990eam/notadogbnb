@@ -1,6 +1,8 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
+  position: fixed;
+  z-index: 1030;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,6 +11,13 @@
 
 .navbar-lewagon .navbar-brand img {
  height: 5vh;
+}
+
+.scrolled-down{
+   transform:translateY(-100%); transition: all 0.3s ease-in-out;
+}
+.scrolled-up{
+   transform:translateY(0); transition: all 0.3s ease-in-out;
 }
 
 /*Smallest device*/

@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top">
   <% if user_signed_in? %>
     <%= link_to notdogs_path, class: "navbar-brand" do %>
       <%= image_tag "logo.png" %>
@@ -34,7 +34,7 @@
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
-        <div class="nav-link">
+        <div class="navbar-text ml-2">
             <%= current_user.name %>
           </div>
       <% else %>

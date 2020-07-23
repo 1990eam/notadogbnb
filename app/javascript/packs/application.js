@@ -7,6 +7,7 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+require("jquery")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -32,10 +33,11 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { initMapboxForCards } from '../plugins/init_mapbox';
 import { initAutocomplete } from '../plugins/init_autocomplete';
 import { loadDynamicBannerText } from '../components/banner';
+import { initUpdateNavbarOnScroll } from '../components/navbar';
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initMapboxForCards();
   initAutocomplete();
-  loadDynamicBannerText();
+  initUpdateNavbarOnScroll();
 });
