@@ -1,23 +1,31 @@
 <div id="main-index-div">
-  <div class="cards">
-    <h1 class="main-header">Welcome to a unique experience</h1>
+  <div class="cards mt-0">
+    <h1 class="main-header mb-0">Welcome to a unique experience!</h1>
+    <p class="border-bottom pb-3 mb-0">We have <%= @notdogs.count.round %> notdogs available for booking!</p>
     <% @notdogs.each do |notdog| %>
-      <div class="card-notdog mb-3">
-        <img src=<%= cl_image_path notdog.photo.key, height: 500, width: 700, crop: :fill %> >
-        <div class="card-notdog-infos">
-           <div>
-            <p class="text-black-50"><%= notdog.taxonomy_fantasy_name %> (<%= notdog.taxonomy_name %>)</p>
-            <h2><%= link_to notdog.name, notdog_path(notdog) %></h2>
-            <p><%= notdog.description %></p>
-          </div>
-            <p class="card-notdog-pricing">USD$<%= notdog.cost_per_day %></p>
+      <%= link_to notdog_path(notdog) do %>
+        <div class="card-notdog my-0 py-3 border-bottom">
+          <img class="card-notdog-img", src=<%= cl_image_path notdog.photo.key, height: 400, width: 500, crop: :fill %> >
+          <div class="card-notdog-infos">
+            <div>
+              <p class="text-black-50"><%= notdog.taxonomy_fantasy_name %> (<%= notdog.taxonomy_name %>)</p>
+              <h2><%= notdog.name %></h2>
+              <p><%= notdog.description %></p>
+              <% if false #codigo para la reviews de amy...%>
+                <% #codigo para las reviews de amy... %>
+              <% else %>
+                <p>No reviews yet 😞</p>
+              <% end %>
+            </div>
           <% if notdog.owner.photo.attached? %>
-            <%= cl_image_tag notdog.owner.photo.key, class: "card-notdog-user avatar-bordered" %>
-          <% else %>
-            <%= image_tag "https://www.jdevoto.cl/web/wp-content/uploads/2018/04/default-user-img.jpg", class: "card-notdog-user avatar-bordered" %>
-          <% end %>
+              <%= cl_image_tag notdog.owner.photo.key, class: "card-notdog-user avatar-bordered" %>
+            <% else %>
+              <%= image_tag "https://www.jdevoto.cl/web/wp-content/uploads/2018/04/default-user-img.jpg", class: "card-notdog-user avatar-bordered" %>
+            <% end %>
+            <p class="card-notdog-pricing"><strong>USD$<%= notdog.cost_per_day %></strong>/day</p>
+          </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
   </div>
   <div class="container" id="map"
