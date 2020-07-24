@@ -26,4 +26,4 @@ export { calculateDays };
 
 //console.log(document.querySelector('.form-container').dataset.dates);
 
-//ver: calculatedays, disable dates, booking validations, taxonomies
+//ver: calculatedays, disable dates, booking validations
