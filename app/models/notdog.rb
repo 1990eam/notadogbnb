@@ -6,7 +6,7 @@ class Notdog < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
   has_many :reviews, through: :bookings, dependent: :destroy
-  has_many :messages
+  has_many :messages, dependent: :destroy
 
   include PgSearch::Model
   pg_search_scope :search,

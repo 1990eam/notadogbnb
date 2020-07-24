@@ -24,7 +24,7 @@ notdog = Notdog.new(name: "Kiss from a Rose", cost_per_day: "100",
                     address: "Av Corrientes 900, Buenos Aires, Argentina")
 notdog.photo.attach(io:URI.open("https://source.unsplash.com/random/?#{notdog.taxonomy_name}"), filename: "#{notdog.name}.png", content_type: 'image/png')
 notdog.save!
-puts "done"
+puts "Saved Notdog"
 
 notdog = Notdog.new(name: "Mordelón", cost_per_day: "240",
                     description: "WARNING: No rascarle la nariz", owner: User.first,
@@ -33,7 +33,7 @@ notdog = Notdog.new(name: "Mordelón", cost_per_day: "240",
                     address: "El Profeta de la Pampa 4570, Buenos Aires, Argentina")
 notdog.photo.attach(io:URI.open("https://source.unsplash.com/random/?#{notdog.taxonomy_name}"), filename: "#{notdog.name}.png", content_type: 'image/png')
 notdog.save!
-puts "done"
+puts "Saved Notdog"
 
 notdog = Notdog.new(name: "Woodchuck Berkowitz", cost_per_day: "80",
                     description: "Fue Gobernador de California", owner: User.first,
@@ -42,7 +42,7 @@ notdog = Notdog.new(name: "Woodchuck Berkowitz", cost_per_day: "80",
                     address: "Alameda Jaú 1581, Jardim Paulista, Sao Paulo")
 notdog.photo.attach(io:URI.open("https://source.unsplash.com/random/?#{notdog.taxonomy_name}"), filename: "#{notdog.name}.png", content_type: 'image/png')
 notdog.save!
-puts "done"
+puts "Saved Notdog"
 
 notdog = Notdog.new(name: "Fido", cost_per_day: "50",
                     description: "Split Personality Disorder", owner: User.first,
@@ -51,7 +51,7 @@ notdog = Notdog.new(name: "Fido", cost_per_day: "50",
                     address: "Ita Paso Sub-Urbano, Encarnacion, Paraguay")
 notdog.photo.attach(io:URI.open("https://source.unsplash.com/random/?#{notdog.taxonomy_name}"), filename: "#{notdog.name}.png", content_type: 'image/png')
 notdog.save!
-puts "done"
+puts "Saved Notdog"
 
 notdog = Notdog.new(name: "Viuda", cost_per_day: "180",
                     description: "Ideal para divorcios recientes", owner: User.first,
@@ -60,7 +60,7 @@ notdog = Notdog.new(name: "Viuda", cost_per_day: "180",
                     address: "Cra. 71d #120-01, Suba, Bogotá, Colombia")
 notdog.photo.attach(io:URI.open("https://source.unsplash.com/random/?#{notdog.taxonomy_name}"), filename: "#{notdog.name}.png", content_type: 'image/png')
 notdog.save!
-puts "done"
+puts "Saved Notdog"
 
 notdog = Notdog.new(name: "Abraxas", cost_per_day: "50",
                     description: "Horror cósmico lovecraftiano in fluffy form", owner: User.first,
@@ -69,7 +69,7 @@ notdog = Notdog.new(name: "Abraxas", cost_per_day: "50",
                     address: "AV. FCO DE ORELLANA KM. 4.5 C.C. LA GRAN MANZANA, Guayaquil 090607, Ecuador")
 notdog.photo.attach(io:URI.open("https://source.unsplash.com/random/?#{notdog.taxonomy_name}"), filename: "#{notdog.name}.png", content_type: 'image/png')
 notdog.save!
-puts "done"
+puts "Saved Notdog"
 
 notdog = Notdog.new(name: "Ojeras", cost_per_day: "150",
                     description: "Ideal para personas nocturnas", owner: User.first,
@@ -78,7 +78,7 @@ notdog = Notdog.new(name: "Ojeras", cost_per_day: "150",
                     address: Faker::Address.street_address)
 notdog.photo.attach(io:URI.open("https://source.unsplash.com/random/?#{notdog.taxonomy_name}"), filename: "#{notdog.name}.png", content_type: 'image/png')
 notdog.save!
-puts "done"
+puts "Saved Notdog"
 
 notdog = Notdog.new(name: "Melvin", cost_per_day: "230",
                     description: "No recomendable para personas con complejo de inferioridad",
@@ -88,7 +88,7 @@ notdog = Notdog.new(name: "Melvin", cost_per_day: "230",
                     address: "Dieciocho 161, Santiago, Región Metropolitana, Chile")
 notdog.photo.attach(io:URI.open("https://source.unsplash.com/random/?#{notdog.taxonomy_name}"), filename: "#{notdog.name}.png", content_type: 'image/png')
 notdog.save!
-puts "done"
+puts "Saved Notdog"
 
 notdog = Notdog.new(name: "Tincho", cost_per_day: "60",
                     description: "WARNING: Puede que ya se hable con tus ex", owner: User.first,
@@ -97,7 +97,7 @@ notdog = Notdog.new(name: "Tincho", cost_per_day: "60",
                     address: "Centro Cívico, R8400 San Carlos de Bariloche, Río Negro")
 notdog.photo.attach(io:URI.open("https://source.unsplash.com/random/?#{notdog.taxonomy_name}"), filename: "#{notdog.name}.png", content_type: 'image/png')
 notdog.save!
-puts "done"
+puts "Saved Notdog"
 
 notdog = Notdog.new(name: "Snowy", cost_per_day: "110",
                     description: "{(@)v(@)}", owner: User.first,
@@ -106,7 +106,7 @@ notdog = Notdog.new(name: "Snowy", cost_per_day: "110",
                     address: "Mexico &, Av Ayacucho, Cochabamba, Bolivia")
 notdog.photo.attach(io:URI.open("https://source.unsplash.com/random/?#{notdog.taxonomy_name}"), filename: "#{notdog.name}.png", content_type: 'image/png')
 notdog.save!
-puts "done"
+puts "Saved Notdog"
 
 notdog = Notdog.new(name: "Princess Diana", cost_per_day: "110",
                     description: "Cargos extra si se le enseñan improperios o fragmentos del Manifiesto Comunista",
@@ -116,7 +116,7 @@ notdog = Notdog.new(name: "Princess Diana", cost_per_day: "110",
                     address: "Haflingerstraat, Paramaribo, Suriname")
 notdog.photo.attach(io:URI.open("https://source.unsplash.com/random/?#{notdog.taxonomy_name}"), filename: "#{notdog.name}.png", content_type: 'image/png')
 notdog.save!
-puts "done"
+puts "Saved Notdog"
 
 # Bookings
 puts "Creating bookings.."
@@ -134,4 +134,5 @@ puts "Creating bookings.."
                          price: notdog.cost_per_day * (end_date - Date.current),
                          status: "pending")
   booking.save!
+  puts "Saved Booking"
 end
