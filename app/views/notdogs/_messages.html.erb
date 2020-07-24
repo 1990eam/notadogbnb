@@ -19,7 +19,7 @@
               <%= message.body %>
 
               <div class="message-body-infos">
-                <span class="created-at">(<%= time_ago_in_words(message.created_at, include_seconds: true) %>) ago</span>
+                <span class="created-at">(<%= time_ago_in_words(message.created_at, include_seconds: true) %> ago) </span>
                 <% if policy(message).update? %>
                   <%= link_to "Reply", edit_notdog_message_path(@notdog, message) %>
                 <% end %>
@@ -38,7 +38,7 @@
                   <i class="fas fa-level-up-alt flecha-respuesta"></i>  <%= message.answer %>
                 </div>
                 <div class="message-answer-infos">
-                  <span class="updated-at">(<%= time_ago_in_words(message.updated_at, include_seconds: true) %>) ago</span>
+                  <span class="updated-at">(<%= time_ago_in_words(message.updated_at, include_seconds: true) %> ago) </span>
                 </div>
               </div>
             <% end %>

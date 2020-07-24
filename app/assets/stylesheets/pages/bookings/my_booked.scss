@@ -1,0 +1,17 @@
+.booking-status {
+
+  .accepted {
+      color: green;
+      font-weight: bolder;
+  }
+
+  .pending {
+    color: yellow;
+    font-weight: bolder;
+  }
+
+  .rejected {
+    color: red;
+    font-weight: bolder;
+  }
+}
