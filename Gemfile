@@ -24,6 +24,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'faker'
 #Geocoder gem
 gem 'geocoder'
+gem 'turbolinks_render'
 
 
 # Use Active Storage variant

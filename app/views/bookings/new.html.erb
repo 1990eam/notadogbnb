@@ -2,7 +2,7 @@
   <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
     <h2 class="main-header">Your booking</h2>
 
-    <%= simple_form_for [@notdog, @booking] do |f| %>
+    <%= simple_form_for([ @notdog, @booking ], remote: true) do |f| %>
       <%= f.input :start_date, as: :string, label: "Date Range", required: true, input_html: {class: "datepicker"}, onclick: "calculateDays()" %>
       <%= f.button :submit, "Submit", class: "btn btn-primary" %>
       <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>

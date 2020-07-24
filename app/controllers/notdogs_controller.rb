@@ -37,8 +37,7 @@ class NotdogsController < ApplicationController
     @notdog.taxonomy_category = notdog_params[:taxonomy_category].drop(1).join(", ")
     @notdog.owner = current_user
     authorize @notdog
-
-    if @notdog.save!
+    if @notdog.save
       redirect_to @notdog
     else
       render :new
@@ -49,7 +48,6 @@ class NotdogsController < ApplicationController
 
   def update
     @notdog.update(notdog_params)
-
     if @notdog.save
       redirect_to @notdog
     else

@@ -1,6 +1,6 @@
 <div class="container mt-5">
     <div class="form-group">
-      <%= simple_form_for @notdog do |f| %>
+      <%= simple_form_for(@notdog, remote: true) do |f| %>
       <%= f.error_notification %>
       <%= f.input :name, placeholder: "Pet Name" %>
       <%= f.input :description, as: :text, placeholder: "Describe tu mascota" %>

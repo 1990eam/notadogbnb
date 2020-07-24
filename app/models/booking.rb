@@ -23,7 +23,6 @@ class Booking < ApplicationRecord
   def notdog_booked
     start_date = self.start_date.beginning_of_day
     end_date = self.end_date.end_of_day
-    raise
     if Booking.where(notdog_id: self.notdog_id).where('start_date BETWEEN ? AND ?', start_date, end_date).where('end_date BETWEEN ? AND ?', start_date, end_date).present?
       errors.add(:start_date, "el Notdog ya está reservado en esas fechas!")
     end
