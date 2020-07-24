@@ -27,9 +27,10 @@
         <%= link_to "Add a Review", new_booking_review_path(@booking) %>
       </div>
       </div>
-      <div class="map">
-        <h1>map placeholder</h1>
-      </div>
+        <div class="card-category" id="map-card"
+        style="width: 25vw; height: 25vh;"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV["MAPBOX_API_KEY"] %>">
       <!-- Update & Delete -->
       <div>
         <% if policy(@booking).destroy? %>
