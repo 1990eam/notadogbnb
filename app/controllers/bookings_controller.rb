@@ -6,7 +6,13 @@ class BookingsController < ApplicationController
   end
 
   def show
-    @bookings = policy_scope(Booking)
+    @markers =
+    [{
+      lat: @booking.notdog.latitude,
+      lng: @booking.notdog.longitude,
+        # infoWindow: render_to_string(partial: "info_window", locals: { notdog: @notdog }),
+      image_url: helpers.asset_url('notdog-marker.png')
+      }]
   end
 
   def new
