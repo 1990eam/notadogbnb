@@ -13,11 +13,6 @@
                   <p><%= booking.start_date %> - <%= booking.end_date %></p>
                   <p><%= booking.notdog.address  %></p>
                   <p class=>USD$<%= booking.price %></p>
-                  <% booking.user.bookings.each do |booking| %>
-                    <% booking.reviews.where.not(user: booking.user).each do |review| %>
-                    <%= review.user_review %>
-                    <% end %>
-                  <% end %>
                 </div>
                 <%= link_to "See booking", booking_path(booking) %>
               </div>

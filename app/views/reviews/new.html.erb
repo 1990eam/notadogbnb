@@ -2,20 +2,14 @@
   <div class="form-group">
     <%= simple_form_for [ @booking, @review ] do |f| %>
       <%= f.error_notification %>
-      <%= f.input :user_review, as: :text, :label => "Review", placeholder: "Escribe una reseña sobre tu experiencia" %>
-      <%= f.input :user_score, label: "Rating" , collection: 1..5 %>
-      <div class='rating-box'>
-        <h3> Rating </h3>
-        <div class='ratings'>
-          <i class="far fa-star"></i>
-          <i class="far fa-star"></i>
-          <i class="far fa-star"></i>
-          <i class="far fa-star"></i>
-          <i class="far fa-star"></i>
-        </div>
-        <input type="text" id='rating-value'>
-      </div>
-      <br>
+
+      <% if @booking.owner != current_user %>
+        <%= f.input :user_review, as: :text, :label => "Review", placeholder: "Escribe una reseña sobre tu experiencia" %>
+        <%= f.input :user_score, label: "Rating" , collection: 1..5 %>
+      <% else %>
+        <%= f.input :owner_review, as: :text, :label => "Review", placeholder: "Escribe una reseña del cliente" %>
+        <%= f.input :owner_score, label: "Rating" , collection: 1..5 %>
+       <% end %>
       <%= f.submit "Submit review", class: "btn btn-primary" %>
     <% end %>
   </div>
