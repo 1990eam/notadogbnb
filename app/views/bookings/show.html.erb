@@ -24,7 +24,9 @@
         <p>Start date: <%= @booking.start_date %></p>
         <p>End date: <%= @booking.end_date %></p>
         <div>
-        <%= link_to "Add a Review", new_booking_review_path(@booking) %>
+          <% unless @booking.end_date > Time.current || @booking.owner == current_user %>
+            <%= link_to "Add a Review", new_booking_review_path(@booking) %>
+          <% end %>
       </div>
       </div>
       <div class="map">

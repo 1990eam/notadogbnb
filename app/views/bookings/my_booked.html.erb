@@ -1,0 +1,24 @@
+<div class="container">
+  <h1 class="main-header">My booked NotDogs</h1>
+  <div class='row'>
+    <% @notdogs.each do |notdog| %>
+      <% notdog.bookings.each do |booking| %>
+        <div class="col-12">
+          <div class="card-booking mb-3">
+              <img src=<%= cl_image_path booking.notdog.photo.key, height: 500, width: 700, crop: :fill %> >
+              <div class="card-booking-infos">
+                <div>
+                  <p class="text-black-50"><%= booking.notdog.taxonomy_fantasy_name %> (<%= booking.notdog.taxonomy_name %>)</p>
+                  <h2><%= link_to booking.notdog.name, notdog_path(booking.notdog) %></h2>
+                  <p><%= booking.start_date %> - <%= booking.end_date %></p>
+                  <p><%= booking.notdog.address  %></p>
+                  <p class=>USD$<%= booking.price %></p>
+                </div>
+                <%= link_to "See booking", booking_path(booking) %>
+              </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

@@ -26,6 +26,10 @@ class NotdogPolicy < ApplicationPolicy
     !user_owner?
   end
 
+  def my_notdogs?
+    user_owner?
+  end
+
   private
 
   def user_owner?
