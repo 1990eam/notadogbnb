@@ -121,6 +121,7 @@ notdog.save!
                          notdog_id: notdog.id,
                          start_date: Date.current,
                          end_date: end_date,
-                         price: notdog.cost_per_day * (end_date - Date.current))
+                         price: notdog.cost_per_day * (end_date - Date.current),
+                         status: "pending")
   booking.save!
 end
