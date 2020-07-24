@@ -1,10 +1,10 @@
 <div id="main-index-div">
   <div class="cards mt-0">
     <h1 class="main-header mb-0">Welcome to a unique experience!</h1>
-    <p class="border-bottom pb-3 mb-0">We have <%= @notdogs.count.round %> notdogs available for booking!</p>
+    <p class="pb-3 mb-0">We have <%= @notdogs.count.round %> notdogs available for booking!</p>
     <% @notdogs.each do |notdog| %>
       <%= link_to notdog_path(notdog) do %>
-        <div class="card-notdog my-0 py-3 border-bottom">
+        <div class="card-notdog my-0 py-3 border-top">
           <img class="card-notdog-img", src=<%= cl_image_path notdog.photo.key, height: 400, width: 500, crop: :fill %> >
           <div class="card-notdog-infos">
             <div>

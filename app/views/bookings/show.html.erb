@@ -33,7 +33,7 @@
       <!-- Update & Delete -->
       <div>
         <% if policy(@booking).destroy? %>
-        <%= link_to "Delete this booking", notdog_path(@notdog), method: :delete, data: { confirm: 'Are you certain you want to delete this?' }  %>
+          <%= link_to "Delete this booking", notdog_path(@booking.notdog), method: :delete, data: { confirm: 'Are you certain you want to delete this?' }  %>
         <% end %>
       </div>
     </div>

@@ -19,17 +19,29 @@
    transform:translateY(0); transition: all 0.3s ease-in-out;
 }
 
+.navbar-invisible-div {
+  background-color: white;
+}
+
 /*Smallest device*/
 @media (min-width: 100px) and (max-width: 575px) {
   .navbar-lewagon .navbar-brand img {
     height: 10vh;
   }
+  .navbar-invisible-div {
+    height: 11vh;
+    margin-bottom: 28px;
+  }
 }
 
 /*Small devices (landscape phones, 576px and up)*/
-@media (min-width: 576px) {
+@media (min-width: 768px) {
   .navbar-lewagon .navbar-brand img {
     height: 7.5vh;
+  }
+    .navbar-invisible-div {
+    height: 8.5vh;
+    margin-bottom: 24px;
   }
 }
 
@@ -37,5 +49,9 @@
 @media (min-width: 1200px) {
   .navbar-lewagon .navbar-brand img {
     height: 5vh;
+  }
+  .navbar-invisible-div {
+    height: 6vh;
+    margin-bottom: 16px;
   }
 }

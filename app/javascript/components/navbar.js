@@ -1,4 +1,4 @@
-$('body').css('padding-top', $('.navbar').outerHeight() + 'px')
+//$('body').css('padding-top', $('.navbar').outerHeight() + 'px')
 
 const initUpdateNavbarOnScroll = () => {
   const navbar = document.querySelector('.navbar-lewagon');
