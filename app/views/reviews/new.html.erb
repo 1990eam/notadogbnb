@@ -3,7 +3,19 @@
     <%= simple_form_for [ @booking, @review ] do |f| %>
       <%= f.error_notification %>
       <%= f.input :user_review, as: :text, :label => "Review", placeholder: "Escribe una reseña sobre tu experiencia" %>
-      <%= f.input :user_score, label: "Score", collection: 1..5 %>
+      <%= f.input :user_score, label: "Rating" , collection: 1..5 %>
+      <div class='rating-box'>
+        <h3> Rating </h3>
+        <div class='ratings'>
+          <i class="far fa-star"></i>
+          <i class="far fa-star"></i>
+          <i class="far fa-star"></i>
+          <i class="far fa-star"></i>
+          <i class="far fa-star"></i>
+        </div>
+        <input type="text" id='rating-value'>
+      </div>
+      <br>
       <%= f.submit "Submit review", class: "btn btn-primary" %>
     <% end %>
   </div>
