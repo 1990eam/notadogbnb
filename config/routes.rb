@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   resources :bookings, only: [:index, :show, :edit, :update, :destroy] do
     resources :reviews, only: [ :new, :create ]
   end
+    get "my_notdogs", to: "notdogs#my_notdogs"
+    get "my_booked", to: "bookings#my_booked"
 end
 
 #               root GET    /                                                  pages#home

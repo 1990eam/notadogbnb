@@ -1,7 +1,8 @@
 class NotdogsController < ApplicationController
   before_action :set_notdog, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:index]
-  # skip_after_action :verify_authorized, only: [:index]
+  skip_after_action :verify_authorized, only: [:my_notdogs]
+
   def index
     if params[:query].present?
       sql_query = " \
@@ -72,6 +73,10 @@ class NotdogsController < ApplicationController
   def destroy
     @notdog.destroy
     redirect_to notdogs_path
+  end
+
+  def my_notdogs
+    @notdogs = current_user.notdogs
   end
 
   private
