@@ -34,6 +34,7 @@ class NotdogsController < ApplicationController
 
   def create
     @notdog = Notdog.new(notdog_params)
+    @notdog.taxonomy_category = notdog_params[:taxonomy_category].drop(1).join(", ")
     @notdog.owner = current_user
     authorize @notdog
 
@@ -65,7 +66,7 @@ class NotdogsController < ApplicationController
 
   def notdog_params
     # estos parametros se usan tanto para crear como para updatear un notdog
-    params.require(:notdog).permit(:name, :cost_per_day, :description, :address, :taxonomy_name, :taxonomy_category, :taxonomy_fantasy_name, :photo)
+    params.require(:notdog).permit(:name, :cost_per_day, :description, :address, :taxonomy_name, :taxonomy_fantasy_name, :photo, taxonomy_category: [])
   end
 
   def set_notdog

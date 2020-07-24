@@ -10,8 +10,8 @@ class Notdog < ApplicationRecord
   validate :photo_present
 
   def photo_present
-    unless self.photo.attached?
-      self.photo.attach(io: File.open(Dir.getwd + "/app/assets/images/notdog-marker.png"), filename: "default.png", content_type: 'image/png')
+    unless photo.attached?
+      photo.attach(io: File.open(Dir.getwd + "/app/assets/images/notdog-marker.png"), filename: "default.png", content_type: 'image/png')
     end
   end
 
