@@ -9,6 +9,7 @@
 .card-notdog-img {
   border-radius: 2%;
   height: 100%;
+  overflow: hidden;
 }
 
 .card-notdog h2 {
@@ -44,5 +45,11 @@
   right: 16px;
   top: 16px;
   width: 40px;
+  position: absolute;
+}
+
+.card-notdog-pricing {
+  right: 16px;
+  bottom: 16px;
   position: absolute;
 }

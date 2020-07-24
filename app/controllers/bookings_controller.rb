@@ -13,13 +13,13 @@ class BookingsController < ApplicationController
     @booking = Booking.new
     @notdog = Notdog.find(params[:notdog_id].to_i)
     @booking.notdog = @notdog
-    # @notdog = Notdog.find(params[:notdog_id])
+    @dates = set_invalid_dates
     authorize @notdog
     authorize @booking
   end
 
   def create
-    @booking = Booking.new(booking_params)
+    @booking = Booking.new(start_date: booking_params[:start_date].split[0], end_date: booking_params[:start_date].split[2])
     @booking.user = current_user
     @booking.notdog = Notdog.find(params[:notdog_id])
     @notdog = Notdog.find(params[:notdog_id])
@@ -56,5 +56,15 @@ class BookingsController < ApplicationController
   def set_booking
     @booking = Booking.find(params[:id])
     authorize @booking
+  end
+
+  def set_invalid_dates
+    array = []
+    bookings = Booking.where(notdog_id: @notdog.id)
+    bookings.each do |booking|
+      booking_dates = {from: booking.start_date.to_s, to: booking.end_date.to_s}
+      array << JSON.generate(booking_dates)
+    end
+    array
   end
 end
