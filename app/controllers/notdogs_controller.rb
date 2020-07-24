@@ -4,7 +4,19 @@ class NotdogsController < ApplicationController
   skip_after_action :verify_authorized, only: [:my_notdogs]
 
   def index
-    @notdogs = policy_scope(Notdog).order(name: :asc).geocoded
+    if params[:query].present?
+      sql_query = " \
+        notdogs.taxonomy_name @@ :query \
+        OR notdogs.taxonomy_category @@ :query \
+        OR notdogs.address @@ :query \
+        "
+      @notdogs = policy_scope(Notdog).where(sql_query, query: "%#{params[:query]}%")
+      if @notdogs.empty?
+        @notdogs = policy_scope(Notdog).order(name: :asc).geocoded
+      end
+    else
+      @notdogs = policy_scope(Notdog).order(name: :asc).geocoded
+    end
 
     @markers = @notdogs.map do |notdog|
       {

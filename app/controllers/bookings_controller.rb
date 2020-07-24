@@ -1,20 +1,27 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:show, :edit, :update]
+  before_action :set_booking, only: [:show, :edit, :update, :destroy]
   skip_after_action :verify_authorized, only: [:my_booked]
+
 
   def index
     @bookings = policy_scope(Booking).order(created_at: :asc)
   end
 
   def show
-    @bookings = policy_scope(Booking)
+    @markers =
+    [{
+      lat: @booking.notdog.latitude,
+      lng: @booking.notdog.longitude,
+        # infoWindow: render_to_string(partial: "info_window", locals: { notdog: @notdog }),
+      image_url: helpers.asset_url('notdog-marker.png')
+      }]
   end
 
   def new
     @booking = Booking.new
     @notdog = Notdog.find(params[:notdog_id].to_i)
     @booking.notdog = @notdog
-    # @notdog = params[:notdog_id]
+    # @notdog = Notdog.find(params[:notdog_id])
     authorize @notdog
     authorize @booking
   end
@@ -23,9 +30,10 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.notdog = Notdog.find(params[:notdog_id])
+    @notdog = Notdog.find(params[:notdog_id])
     @booking.price = @booking.notdog.cost_per_day * (@booking.end_date - @booking.start_date)
     authorize @booking
-    if @booking.save!
+    if @booking.save
       redirect_to bookings_path
     else
       render :new
@@ -41,9 +49,14 @@ class BookingsController < ApplicationController
       render :show
     end
   end
-
+  
   def my_booked
     @notdogs = current_user.notdogs
+  end
+  
+  def destroy
+    @booking.destroy
+    redirect_to bookings_path
   end
 
   private
