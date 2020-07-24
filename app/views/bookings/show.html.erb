@@ -29,13 +29,14 @@
           <% end %>
       </div>
       </div>
-      <div class="map">
-        <h1>map placeholder</h1>
-      </div>
+        <div class="card-category" id="map"
+        style="width: 25vw; height: 25vh;"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV["MAPBOX_API_KEY"] %>">
       <!-- Update & Delete -->
       <div>
         <% if policy(@booking).destroy? %>
-        <%= link_to "Delete this booking", notdog_path(@notdog), method: :delete, data: { confirm: 'Are you certain you want to delete this?' }  %>
+          <%= link_to "Delete this booking", booking_path(@booking), method: :delete, data: { confirm: 'Are you certain you want to delete this?' }  %>
         <% end %>
       </div>
     </div>

@@ -4,15 +4,15 @@
     <div class="col-lg-3 col-6">
 
       <!-- Card -->
-          <div class="card-notdog mb-3">
+          <div class="card-notdog-show mb-3">
             <img src=<%= cl_image_path @notdog.photo.key, height: 500, width: 700, crop: :fill %> >
-            <div class="card-notdog-infos">
+            <div class="card-notdog-infos-show">
               <div>
                 <p class="text-black-50"><%= @notdog.taxonomy_fantasy_name %> (<%= @notdog.taxonomy_name %>)</p>
                 <h2><%= link_to @notdog.name, notdog_path(@notdog) %></h2>
                 <p><%= @notdog.description %></p>
               </div>
-                  <p class="card-notdog-pricing">USD$<%= @notdog.cost_per_day %></p>
+                  <p class="card-notdog-pricing-show">USD$<%= @notdog.cost_per_day %></p>
             </div>
 
             <div class="book-button">
