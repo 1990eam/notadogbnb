@@ -44,7 +44,6 @@ class NotdogsController < ApplicationController
         }
       end
     end
-    raise
   end
 
     def show
