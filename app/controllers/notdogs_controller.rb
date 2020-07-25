@@ -9,6 +9,7 @@ class NotdogsController < ApplicationController
       notdogs.taxonomy_name @@ :query \
       OR notdogs.taxonomy_category @@ :query \
       OR notdogs.address @@ :query \
+      OR notdogs.name @@ :query \
       "
       @notdogs = policy_scope(Notdog).where(sql_query, query: "%#{params[:query]}%").geocoded
       @markers = @notdogs.map do |notdog|
