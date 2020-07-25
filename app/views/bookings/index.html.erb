@@ -13,7 +13,7 @@
                 <!-- Accept/Decline booking -->
                 <% case booking.status %>
                 <% when "pending" %>
-                <p style="color: #e59500; font-weight: bolder">Pending</p>
+                <p style="color: #e59500; font-weight: bolder">Pending response from <%= booking.owner.name %></p>
                 <% when "accepted" %>
                 <p style="color: green; font-weight: bolder">Accepted</p>
                 <% when "declined" %>
