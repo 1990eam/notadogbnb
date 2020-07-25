@@ -14,7 +14,7 @@
       </div>
     </div>
 
-    <div class="card">
+    <div class="card p-3">
       <div class="col-log-4 details">
         <h2 class="text-left">Other details:</h2>
         <p>Owner: <%= @booking.notdog.owner.name %> </p>
@@ -28,6 +28,11 @@
           <br>
           <%= link_to "Back to My Bookings", bookings_path %>
         </div>
+         <div>
+        <% if policy(@booking).destroy? %>
+        <%= link_to "Delete this booking", booking_path(@booking), method: :delete, data: { confirm: 'Are you certain you want to delete this?' }  %>
+        <% end %>
+      </div>
       </div>
       <div class="card-category" id="map-card"
       style="width: 25vw; height: 25vh;"
@@ -39,17 +44,14 @@
         <%= link_to @booking.owner != current_user ? "Add review for customer" : "Add a Review", new_booking_review_path(@booking), class: 'btn btn-primary' %>
         <% end %>
       </div>
+
     </div>
   </div>
   <div class="card-category" id="map-card"
   style="width: 25vw; height: 25vh;"
   data-markers="<%= @markers.to_json %>"
   data-mapbox-api-key="<%= ENV["MAPBOX_API_KEY"] %>">
-  <div>
-    <% if policy(@booking).destroy? %>
-    <%= link_to "Delete this booking", booking_path(@booking), method: :delete, data: { confirm: 'Are you certain you want to delete this?' }  %>
-    <% end %>
-  </div>
+
 </div>
 </div>
 </div>
