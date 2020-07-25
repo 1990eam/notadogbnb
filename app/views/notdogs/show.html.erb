@@ -32,11 +32,23 @@
         <p>Fantasy name: <%= @notdog.taxonomy_fantasy_name %></p>
         <p>Cost per day: <%= @notdog.cost_per_day %></p>
         <p>Location: <%= @notdog.address %></p>
-        <p>Reviews: <i class="fas fa-star" style="color: #ffcd3c"></i> <%= @notdog.average_score %></p>
-        <p><%= link_to "See reviews", notdog_reviews_path(@notdog), class: "orange" %>
+        <% if !@notdog.reviews.empty? %>
+          <div class=d-flex>
+            <%= @notdog.average_score %>
+            <% @notdog.average_score.times do %>
+              <i class="fas fa-star" style="color: #ffcd3c"></i>
+            <% end %>
+            <% (5 - @notdog.average_score).times do %>
+              <i class="far fa-star" style="color: #ffcd3c"></i>
+            <% end %>
+        </div>
+        <% else %>
+          <p>No reviews yet <i class="far fa-frown" style="color: #ffcd3c"></i></p>
+        <% end %><p><%= link_to "See reviews", notdog_reviews_path(@notdog), class: "orange" %>
         <br>
         <%= link_to "Back to index", notdogs_path, class: "orange" %></p>
       <div id="map-card"
+        class="mb-3"
         style="width: 25vw; height: 25vh;"
         data-markers="<%= @markers.to_json %>"
         data-mapbox-api-key="<%= ENV["MAPBOX_API_KEY"] %>">
