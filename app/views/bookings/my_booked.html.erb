@@ -7,19 +7,29 @@
           <div class="card-booking my-3">
               <img src=<%= cl_image_path booking.notdog.photo.key, height: 500, width: 700, crop: :fill %> >
 
-              <div class='row'>
-                <div class='col-7'>
-                  <div class="card-booking-infos">
-                      <div>
-                        <p class="text-black-50"><%= booking.notdog.taxonomy_fantasy_name %> (<%= booking.notdog.taxonomy_name %>)</p>
-                        <h2><%= link_to booking.notdog.name, notdog_path(booking.notdog) %></h2>
-                        <p><%= booking.start_date %> - <%= booking.end_date %></p>
-                        <p><%= booking.notdog.address  %></p>
-                        <p class=>USD$<%= booking.price %></p>
-                        <%= link_to "See booking", booking_path(booking) %>
-                      </div>
-                  </div>
-
+          <div class='row'>
+            <div class='col-7'>
+              <div class="card-booking-infos">
+                <div>
+                  <p class="text-black-50"><%= booking.notdog.taxonomy_fantasy_name %> (<%= booking.notdog.taxonomy_name %>)</p>
+                  <h2><%= link_to booking.notdog.name, notdog_path(booking.notdog) %></h2>
+                  <p><%= booking.start_date %> - <%= booking.end_date %></p>
+                  <p><%= booking.notdog.address  %></p>
+                  <p class=>USD$<%= booking.price %></p>
+                  <%= link_to "See booking", booking_path(booking) %>
+                    <!-- Accept/Decline booking -->
+                    <% case booking.status %>
+                    <% when "pending" %>
+                    <p style="color: yellow; font-weight: bolder">Pending responde from <%= booking.owner.name %></p>
+                    <%= link_to "Accept", accept_path(booking), method: :put, remote: true, class:"btn btn-success" %>
+                    <%= link_to "Decline", decline_path(booking), method: :put, remote: true, class:"btn btn-danger" %>
+                    <% when "accepted" %>
+                    <p style="color: green; font-weight: bolder">Accepted</p>
+                    <% when "declined" %>
+                    <p style="color: red; font-weight: bolder">Declined</p>
+                    <% end %>
+                </div>
+                </div>
                 </div>
 
                 <div class='col-5'>
@@ -34,7 +44,6 @@
                  </div>
                 </div>
             </div>
-
           </div>
       <% end %>
     <% end %>

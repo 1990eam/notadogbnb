@@ -6,7 +6,7 @@ class Booking < ApplicationRecord
   validates :notdog, :start_date, :end_date, :user, presence: true
   validate :start_date_lower_than_end_date
   validate :start_date_lower_than_today
-  validate :notdog_booked
+  # validate :notdog_booked
 
   def start_date_lower_than_end_date
     if start_date > end_date

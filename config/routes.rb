@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :users do
+    resources :bookings, only: [:show]
+  end
   resources :notdogs do
     resources :bookings, only: [:new, :create]
     resources :messages, only: [:new, :create, :edit, :update, :destroy]
@@ -12,6 +15,12 @@ Rails.application.routes.draw do
   end
     get "my_notdogs", to: "notdogs#my_notdogs"
     get "my_booked", to: "bookings#my_booked"
+
+    # buttons to accept/decline a booking
+    # get "bookings/:booking_id/accept", to: "bookings#accept", as: "accept"
+    # get "bookings/:booking_id/decline", to: "bookings#decline", as: "decline"
+    put "bookings/:booking_id/accept", to: "bookings#accept", as: "accept"
+    put "bookings/:booking_id/decline", to: "bookings#decline", as: "decline"
 end
 
 #               root GET    /                                                  pages#home
