@@ -1,11 +1,11 @@
 class NotdogPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      if user.nil? || user.admin
+      # if user.nil? || user.admin
         scope.all
-      else
-        scope.where("user_id != ?", user.id)
-      end
+      # else
+      #   scope.where("user_id != ?", user.id)
+      # end
     end
   end
 
@@ -24,6 +24,10 @@ class NotdogPolicy < ApplicationPolicy
   # Un dueño no puede hacerse una pregunta a si mismo
   def cannot_ask_itself_a_question?
     !user_owner?
+  end
+
+  def my_notdogs?
+    user_owner?
   end
 
   private

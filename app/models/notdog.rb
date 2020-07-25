@@ -15,6 +15,13 @@ class Notdog < ApplicationRecord
     end
   end
 
+  include PgSearch::Model
+  pg_search_scope :search,
+    against: [:taxonomy_category, :taxonomy_name, :address],
+    using: {
+      tsearch: { prefix: true }
+    }
+
   def average_score
     self.reviews.average(:user_score)
   end
