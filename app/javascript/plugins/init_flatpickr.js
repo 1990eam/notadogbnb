@@ -15,15 +15,7 @@ flatpickr(".datepicker", {
     ]
 });
 
-const calculateDays = () => {
-  const formElement = document.getElementById('booking_start_date');
-  formElement.addEventListener('input', (e) => {
-    console.log(e);
-  })
-  };
-
-export { calculateDays };
 
 //console.log(document.querySelector('.form-container').dataset.dates);
 
-//ver: calculatedays, disable dates, booking validations
+//ver: disable dates, booking validations
