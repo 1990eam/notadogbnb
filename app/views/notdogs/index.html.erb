@@ -17,7 +17,7 @@
 
               <% if !notdog.reviews.empty? %>
               <div class="d-flex flex-nowrap align-items-center" >
-                <%= notdog.average_score %>
+                <%= notdog.reviews.count %>
                 <% notdog.average_score.times do %>
                 <i class="fas fa-star" style="color: #ffcd3c"></i>
                   <% end %>

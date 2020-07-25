@@ -9,8 +9,8 @@ class Booking < ApplicationRecord
   # validate :notdog_booked
 
   def start_date_lower_than_end_date
-    if start_date > end_date
-      errors.add(:start_date, "no puede ser mayor que la fecha final")
+    if start_date == end_date
+      errors.add(:start_date, "no puede ser igual a end date")
     end
   end
 
