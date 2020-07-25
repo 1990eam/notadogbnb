@@ -24,22 +24,24 @@
     </div>
 
       <!-- Details & Map -->
-    <div class="infos">
+    <div class="card">
 
       <div class="col-log-4 details">
-        <h2>Other details:</h2>
+        <h2 class="text-left">Other details:</h2>
         <p>Owner: <%= @notdog.owner.name %> </p>
         <p>Fantasy name: <%= @notdog.taxonomy_fantasy_name %></p>
         <p>Cost per day: <%= @notdog.cost_per_day %></p>
         <p>Location: <%= @notdog.address %></p>
         <p>Reviews: <i class="fas fa-star" style="color: #ffcd3c"></i> <%= @notdog.average_score %></p>
-        <p><%= link_to "See reviews", notdog_reviews_path(@notdog) %></p>
-      </div>
-
-      <div class="card-category" id="map-card"
+        <p><%= link_to "See reviews", notdog_reviews_path(@notdog) %>
+        <br>
+        <%= link_to "Back to index", notdogs_path %></p>
+      <div id="map-card"
         style="width: 25vw; height: 25vh;"
         data-markers="<%= @markers.to_json %>"
         data-mapbox-api-key="<%= ENV["MAPBOX_API_KEY"] %>">
+      </div>
+
     </div>
 
       <!-- Update & Delete -->
