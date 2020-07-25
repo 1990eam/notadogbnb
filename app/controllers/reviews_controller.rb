@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
   def index
     notdog = policy_scope(Notdog).find(params[:notdog_id])
-    @reviews = notdog.reviews
+    @reviews = notdog.reviews.valid_user_reviews
   end
 
   def new
