@@ -10,7 +10,7 @@ class Review < ApplicationRecord
   validates :owner_score, presence: true, unless: :user_score
   validates :owner_score, inclusion: { in: (1..5) }, unless: :user_score
   validates :user_score, inclusion: { in: (1..5) }, unless: :owner_score
-  validate :booking_after_end_date
+  # validate :booking_after_end_date
 
   scope :valid_user_reviews, -> { where.not(user_score: nil) }
 
@@ -21,5 +21,4 @@ class Review < ApplicationRecord
       errors.add(:booking, "No puede hacer un review antes de terminar su experiencia")
     end
   end
-
 end
