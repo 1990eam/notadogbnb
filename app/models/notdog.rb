@@ -18,7 +18,7 @@ class Notdog < ApplicationRecord
 
   include PgSearch::Model
   pg_search_scope :search,
-    against: [ :taxonomy_category, :taxonomy_name, :address ],
+    against: [ :name, :taxonomy_category, :taxonomy_name, :address ],
     using: {
       tsearch: { prefix: true }
     }
