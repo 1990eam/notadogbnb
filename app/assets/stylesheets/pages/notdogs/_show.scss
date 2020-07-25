@@ -78,6 +78,9 @@
   color: $logo-orange;
   opacity: 0.8;
 }
+
+
+
 // Messages
 
 .messages {
@@ -91,9 +94,6 @@
     text-align: center;
 
   }
-
-
-
 }
 
 .interaction {
@@ -112,12 +112,12 @@
 
   }
 
-  border: 1px solid black;
+  // border: 1px solid black;
 
   // Pregunta
   .message-body {
 
-    background-color: #fffddb;
+    background-color: white;
     display: flex;
     justify-content: space-between;
 
