@@ -8,6 +8,14 @@ class Notdog < ApplicationRecord
   has_many :reviews, through: :bookings, dependent: :destroy
   has_many :messages, dependent: :destroy
 
+  validate :photo_present
+
+  def photo_present
+    unless photo.attached?
+      photo.attach(io: File.open(Dir.getwd + "/app/assets/images/notdog-marker.png"), filename: "default.png", content_type: 'image/png')
+    end
+  end
+
   include PgSearch::Model
   pg_search_scope :search,
     against: [:taxonomy_category, :taxonomy_name, :address],
