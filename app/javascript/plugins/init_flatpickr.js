@@ -1,21 +1,26 @@
 import flatpickr from "flatpickr";
 
 let array = [];
-
-var datesHash = document.querySelectorAll("#invalid-dates").forEach(element =>
+const bookingNew = document.querySelector(".booking-new")
+if (bookingNew) {
+document.querySelectorAll("#invalid-dates").forEach(element =>
   array[array.length] = ({
     from: element.innerText.split(" - ")[0],
     to: element.innerText.split(" - ")[1]
   })
   );
 
-console.log(array);
+//if (document.querySelector("#invalid-dates")) {
+  // if (array.length > 0) {
+    flatpickr(".datepicker", {
+        mode: "range",
+        dateFormat: "Y-m-d",
+        disable:
+        array
+    });
+  }
+  // }
+// }
 
-flatpickr(".datepicker", {
-    mode: "range",
-    dateFormat: "Y-m-d",
-    disable:
-    array
-});
 
 

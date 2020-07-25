@@ -20,13 +20,13 @@
                     <!-- Accept/Decline booking -->
                     <% case booking.status %>
                     <% when "pending" %>
-                    <p style="color: #b2a000; font-weight: bolder">Pending response from <%= booking.owner.name %></p>
-                    <%= link_to "Accept", accept_path(booking), method: :put, remote: true, class:"btn btn-success" %>
-                    <%= link_to "Decline", decline_path(booking), method: :put, remote: true, class:"btn btn-danger" %>
+                      <p style="color: #e59500; font-weight: bolder">Pending response from <%= booking.owner.name %></p>
+                      <%= link_to "Accept", accept_path(booking), method: :put, remote: true, class:"btn btn-success" %>
+                      <%= link_to "Decline", decline_path(booking), method: :put, remote: true, class:"btn btn-danger" %>
                     <% when "accepted" %>
-                    <p style="color: green; font-weight: bolder">Accepted</p>
+                      <p style="color: green; font-weight: bolder">Accepted</p>
                     <% when "declined" %>
-                    <p style="color: red; font-weight: bolder">Declined</p>
+                      <p style="color: red; font-weight: bolder">Declined</p>
                     <% end %>
                 </div>
                 </div>

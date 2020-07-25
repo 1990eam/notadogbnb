@@ -1,4 +1,4 @@
-<div class="container form-container" data-dates=<%= @dates %> >
+<div class="container form-container">
   <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
     <h2 class="main-header">Your booking</h2>
 
@@ -10,7 +10,7 @@
   </div>
 </div>
 
-<div class="d-none">
+<div class="d-none booking-new">
     <% @notdog.bookings.each do |booking| %>
       <div id="invalid-dates">
         <%= booking.start_date %> - <%= booking.end_date %>
