@@ -2,7 +2,7 @@ class Review < ApplicationRecord
   belongs_to :booking
   # belongs_to :user
   # belongs_to :notdog
-  validate :booking_after_end_date
+  # validate :booking_after_end_date
   validates :user_review, presence: true, unless: :owner_review
   validates :owner_review, presence: true, unless: :user_review
 
