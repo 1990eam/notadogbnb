@@ -33,7 +33,9 @@
         <p>Cost per day: <%= @notdog.cost_per_day %></p>
         <p>Location: <%= @notdog.address %></p>
         <p>Reviews: <i class="fas fa-star" style="color: #ffcd3c"></i> <%= @notdog.average_score %></p>
-        <p><%= link_to "See reviews", notdog_reviews_path(@notdog) %></p>
+        <p><%= link_to "See reviews", notdog_reviews_path(@notdog) %>
+        <br>
+        <%= link_to "Back to index", notdogs_path %></p>
       <div id="map-card"
         style="width: 25vw; height: 25vh;"
         data-markers="<%= @markers.to_json %>"
