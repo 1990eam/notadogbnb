@@ -35,7 +35,11 @@
           </div>
         </li>
         <div class="navbar-text ml-2">
-            <%= current_user.name %>
+            <% if current_user.name.empty? %>
+              <%= current_user.email.split('@').first.capitalize %>
+            <% else  %>
+              <%= current_user.name %>
+            <% end %>
           </div>
       <% else %>
         <li class="nav-item d-flex">
