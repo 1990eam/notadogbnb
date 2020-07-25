@@ -1,15 +1,15 @@
-<div class="container">
+<div class="container mt-5">
     <div class="form-group">
-      <%= simple_form_for @notdog do |f| %>
+      <%= simple_form_for(@notdog, remote: true) do |f| %>
       <%= f.error_notification %>
       <%= f.input :name, placeholder: "Pet Name" %>
       <%= f.input :description, as: :text, placeholder: "Describe tu mascota" %>
       <%= f.input :cost_per_day %>
       <%= f.input :address, placeholder: "Dirección" %>
-      <%= f.input :taxonomy_name, :label => "Species name" %>
-      <%= f.input :taxonomy_fantasy_name, :label => "Fantasy name" %>
-      <%= f.input :taxonomy_category, :label => "Category", as: :check_boxes, collection: ['Terrestre', 'Acuático', 'Aéreo-terrestre', 'Carnivoro', 'Herbívoro', 'Insectívoro'], wrapper: :vertical_collection_inline %>
-      <%= f.input :photo, as: :file %>
+      <%= f.input :taxonomy_name, :label => "Species name (Bull, Shark, Giraffe, etc.)" %>
+      <%= f.input :taxonomy_fantasy_name, :label => "Fantasy name (Horn Doggo, Bitey Water Doggo, Tall Doggo, etc.)" %>
+      <%= f.input :taxonomy_category, :label => "Category", as: :check_boxes, collection: ['Terrestre', 'Acuático', 'Aéreo', 'Carnivoro', 'Herbívoro', 'Insectívoro'], wrapper: :vertical_collection_inline %>
+      <%= f.input :photo, as: :file, required: true %>
       <%= f.button :submit, class: "btn-primary" %>
       <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
     <% end %>

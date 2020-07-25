@@ -12,6 +12,7 @@
   grid-gap: 0px;
   padding: 24px;
   flex-wrap: wrap;
+  flex-grow: 1;
   background: white;
   h1 {
     font-size: 2.3rem;
@@ -26,6 +27,9 @@
   height: 100vh;
   position: sticky;
   top: 0;
+  margin: 0;
+  padding: 0;
+  width: 50vw;
 }
 
 #main-index-div {
