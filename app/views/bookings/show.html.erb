@@ -14,6 +14,7 @@
           </div>
         </div>
       </div>
+
       <div class="card">
         <div class="col-log-4 details">
           <h2 class="text-left">Other details:</h2>
@@ -33,9 +34,14 @@
           style="width: 25vw; height: 25vh;"
           data-markers="<%= @markers.to_json %>"
           data-mapbox-api-key="<%= ENV["MAPBOX_API_KEY"] %>">
-        <!-- Update & Delete -->
-        <% unless @booking.end_date > Time.current || @booking.owner == current_user %>
-        <%= link_to "Add a Review", new_booking_review_path(@booking) %>
+
+        <div>
+          <% unless @booking.end_date > Time.current %>
+            <%= link_to @booking.owner != current_user ? "Add review for customer" : "Add a Review", new_booking_review_path(@booking), class: 'btn btn-primary' %>
+          <% end %>
+        </div>
+
+
         <% end %>
       </div>
     </div>

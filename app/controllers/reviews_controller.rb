@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
   def index
-    @reviews = policy_scope(Review)
-    @reviews = Notdog.find(params[:notdog_id])
+    notdog = policy_scope(Notdog).find(params[:notdog_id])
+    @reviews = notdog.reviews
   end
 
   def new
@@ -11,8 +11,8 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review = Review.new(review_params)
     @booking = Booking.find(params[:booking_id])
+    @review = Review.new(review_params)
     @review.booking = @booking
     authorize @review
     if @review.save!
@@ -25,6 +25,6 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:user_review, :user_score)
+    params.require(:review).permit(:user_review, :user_score, :owner_review, :owner_score)
   end
 end
