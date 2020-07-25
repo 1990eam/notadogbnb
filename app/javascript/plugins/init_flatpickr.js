@@ -1,7 +1,8 @@
 import flatpickr from "flatpickr";
 
 let array = [];
-
+const bookingNew = document.querySelector(".booking-new")
+if (bookingNew) {
 document.querySelectorAll("#invalid-dates").forEach(element =>
   array[array.length] = ({
     from: element.innerText.split(" - ")[0],
@@ -9,20 +10,17 @@ document.querySelectorAll("#invalid-dates").forEach(element =>
   })
   );
 
-if (document.querySelector("#invalid-dates")) {
-  if (array.length > 0) {
+//if (document.querySelector("#invalid-dates")) {
+  // if (array.length > 0) {
     flatpickr(".datepicker", {
         mode: "range",
         dateFormat: "Y-m-d",
         disable:
         array
     });
-  } else {
-    flatpickr(".datepicker", {
-        mode: "range",
-        dateFormat: "Y-m-d"
-    });
   }
-}
+  // }
+// }
+
 
 
