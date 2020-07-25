@@ -21,8 +21,10 @@
                 <% when "declined" %>
                 <p style="color: red; font-weight: bolder">Declined</p>
                 <% end %>
+                <hr>
+                <%= link_to "See booking", booking_path(booking), class: "see-booking" %>
               </div>
-              <%= link_to "See booking", booking_path(booking), class: "see-booking" %>
+
             </div>
         </div>
       </div>
