@@ -4,18 +4,12 @@ flatpickr(".datepicker", {
     mode: "range",
     dateFormat: "Y-m-d",
     disable: [
-        {
-            from: "2025-04-01",
-            to: "2025-05-01"
-        },
-        {
-            from: "2025-09-01",
-            to: "2025-12-01"
-        }
+    datesHash
     ]
 });
 
-
-//console.log(document.querySelector('.form-container').dataset.dates);
-
-//ver: disable dates, booking validations
+var datesHash = document.querySelectorAll("#invalid-dates").forEach(element =>
+  {
+    //from: element.innerText.split(" - ")[0],
+    //to: element.innerText.split(" - ")[1]
+  });
