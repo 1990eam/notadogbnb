@@ -1,6 +1,5 @@
 .show-container {
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  height: 75vh;
   margin-top: 2rem;
 
   h1 {
@@ -68,13 +67,15 @@
   position: relative;
 }
 
-.card-notdog-infos-show .card-notdog-user-show {
-  position: absolute;
-  right: 16px;
-  top: -20px;
-  width: 40px;
+.card-notdog-infos-show a:hover {
+  color: $logo-orange;
+  opacity: 0.8;
 }
 
+.card a:hover {
+  color: $logo-orange;
+  opacity: 0.8;
+}
 // Messages
 
 .messages {
