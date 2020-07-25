@@ -30,7 +30,7 @@ import "bootstrap";
 import { initMapbox } from '../plugins/init_mapbox';
 import { initMapboxForCards } from '../plugins/init_mapbox';
 import { initAutocomplete } from '../plugins/init_autocomplete';
-import { initFlatpickr } from "../plugins/init_flatpickr";
+import "../plugins/init_flatpickr";
 import { loadDynamicBannerText } from '../components/banner';
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 
@@ -42,5 +42,4 @@ document.addEventListener('turbolinks:load', () => {
   initMapboxForCards();
   initAutocomplete();
   loadDynamicBannerText();
-  initFlatpickr();
 });

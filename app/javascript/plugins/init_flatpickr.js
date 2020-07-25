@@ -3,8 +3,6 @@ import flatpickr from "flatpickr";
 let array = [];
 
 const bookingNew = document.querySelector(".booking-new")
-
-const initFlatpickr = () => {
   if (bookingNew) {
     document.querySelectorAll("#invalid-dates").forEach(element =>
       array[array.length] = ({
@@ -19,7 +17,4 @@ const initFlatpickr = () => {
       array
     });
   }
-};
 
-
-export { initFlatpickr };
