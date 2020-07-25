@@ -16,9 +16,9 @@
                     <!-- Accept/Decline booking -->
                     <% case booking.status %>
                     <% when "pending" %>
-                    <p style="color: yellow; font-weight: bolder">Pending</p>
-                    <%= link_to "Accept", accept_path(booking), class:"btn btn-success" %>
-                    <%= link_to "Decline", decline_path(booking), class:"btn btn-danger" %>
+                    <p style="color: yellow; font-weight: bolder">Pending responde from <%= booking.owner.name %></p>
+                    <%= link_to "Accept", accept_path(booking), method: :put, remote: true, class:"btn btn-success" %>
+                    <%= link_to "Decline", decline_path(booking), method: :put, remote: true, class:"btn btn-danger" %>
                     <% when "accepted" %>
                     <p style="color: green; font-weight: bolder">Accepted</p>
                     <% when "declined" %>

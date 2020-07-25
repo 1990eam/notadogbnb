@@ -17,8 +17,10 @@ Rails.application.routes.draw do
     get "my_booked", to: "bookings#my_booked"
 
     # buttons to accept/decline a booking
-    get "bookings/:booking_id/accept", to: "bookings#accept", as: "accept"
-    get "bookings/:booking_id/decline", to: "bookings#decline", as: "decline"
+    # get "bookings/:booking_id/accept", to: "bookings#accept", as: "accept"
+    # get "bookings/:booking_id/decline", to: "bookings#decline", as: "decline"
+    put "bookings/:booking_id/accept", to: "bookings#accept", as: "accept"
+    put "bookings/:booking_id/decline", to: "bookings#decline", as: "decline"
 end
 
 #               root GET    /                                                  pages#home
