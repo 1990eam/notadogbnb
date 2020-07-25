@@ -1,8 +1,8 @@
 <div class="container mt-5">
   <h1 class="main-header">My bookings</h1>
   <div class='row'>
-    <% @bookings.each do |booking| %>
       <div class="col-12">
+        <% @bookings.each do |booking| %>
         <div class="card-booking mb-3">
             <img src=<%= cl_image_path booking.notdog.photo.key, height: 500, width: 700, crop: :fill %> >
             <div class="card-booking-infos">
@@ -15,14 +15,16 @@
                 <!-- Accept/Decline booking -->
                 <% case booking.status %>
                 <% when "pending" %>
-                <p style="color: yellow; font-weight: bolder">Pending</p>
+                <p style="color: #e59500; font-weight: bolder">Pending</p>
                 <% when "accepted" %>
                 <p style="color: green; font-weight: bolder">Accepted</p>
                 <% when "declined" %>
                 <p style="color: red; font-weight: bolder">Declined</p>
                 <% end %>
+                <hr>
+                <%= link_to "See booking", booking_path(booking), class: "see-booking" %>
               </div>
-              <%= link_to "See booking", booking_path(booking) %>
+
             </div>
         </div>
       </div>

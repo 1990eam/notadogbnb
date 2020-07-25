@@ -6,15 +6,24 @@ class NotdogsController < ApplicationController
   def index
     if params[:query].present?
       sql_query = " \
-        notdogs.taxonomy_name @@ :query \
-        OR notdogs.taxonomy_category @@ :query \
-        OR notdogs.address @@ :query \
-        "
+      notdogs.taxonomy_name @@ :query \
+      OR notdogs.taxonomy_category @@ :query \
+      OR notdogs.address @@ :query \
+      "
       @notdogs = policy_scope(Notdog).where(sql_query, query: "%#{params[:query]}%")
       if @notdogs.empty?
         @notdogs = policy_scope(Notdog).order(name: :asc).geocoded
+        @markers = @notdogs.map do |notdog|
+          {
+            lat: notdog.latitude,
+            lng: notdog.longitude,
+            infoWindow: render_to_string(partial: "info_window", locals: { notdog: notdog }),
+            image_url: helpers.asset_url('notdog-marker.png')
+          }
+        end
       end
-
+    else
+      @notdogs = policy_scope(Notdog).order(name: :asc).geocoded
       @markers = @notdogs.map do |notdog|
         {
           lat: notdog.latitude,
@@ -23,13 +32,11 @@ class NotdogsController < ApplicationController
           image_url: helpers.asset_url('notdog-marker.png')
         }
       end
-    else
-      @notdogs = policy_scope(Notdog).order(name: :asc).geocoded
     end
   end
 
-  def show
-    @markers =
+    def show
+      @markers =
       [{
         lat: @notdog.latitude,
         lng: @notdog.longitude,
