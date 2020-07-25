@@ -10,8 +10,7 @@
   </div>
 </div>
 
-The notdog is booked between these dates:
-<div>
+<div class="d-none">
     <% @notdog.bookings.each do |booking| %>
       <div id="invalid-dates">
         <%= booking.start_date %> - <%= booking.end_date %>
