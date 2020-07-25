@@ -1,8 +1,0 @@
-<% if booking.status == "pending" %>
-  <p class="booking-status">Booking status:</p><span class="pending"><%= booking.status %></span>
-  <% elsif booking.status == "accepted" %>
-  <p class="booking-status">Booking status:</p><span class="accepted"><%= booking.status %></span>
-  <% elsif booking.status == "rejected" %>
-  <p class="booking-status">Booking status:</p><span class="rejected"><%= booking.status %></span>
-<% end %>
-
