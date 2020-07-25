@@ -1,0 +1,9 @@
+<div class="row d-flex col-lg">
+  <%= form_tag notdogs_path, method: :get, class: "d-flex flex-nowrap justify-content-left w-100" do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control mb-3",
+      placeholder: "Search by city, Notdog category or habitat"%>
+    <%= submit_tag "Search", class: "btn btn-flat mt-0 mb-5" %>
+  <% end %>
+</div>

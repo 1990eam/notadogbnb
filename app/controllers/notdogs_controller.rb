@@ -13,8 +13,6 @@ class NotdogsController < ApplicationController
       @notdogs = policy_scope(Notdog).where(sql_query, query: "%#{params[:query]}%")
       if @notdogs.empty?
         @notdogs = policy_scope(Notdog).order(name: :asc).geocoded
-      else
-        @notdogs = policy_scope(Notdog).order(name: :asc).geocoded
       end
 
       @markers = @notdogs.map do |notdog|
