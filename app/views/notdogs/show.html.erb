@@ -47,11 +47,11 @@
       <!-- Update & Delete -->
       <div>
         <% if policy(@notdog).destroy? %>
-          <%= link_to "Delete", notdog_path(@notdog), method: :delete, data: { confirm: 'Are you certain you want to delete this?' }  %>
+          <%= link_to "", notdog_path(@notdog), method: :delete, data: { confirm: 'Are you certain you want to delete this Notdog?' }, class: "fas fa-trash-alt px-3" %>
         <% end %>
 
         <% if policy(@notdog).update? %>
-          <%= link_to "Edit", edit_notdog_path(@notdog) %>
+          <%= link_to "", edit_notdog_path(@notdog), class: "fas fa-pencil-alt" %>
         <% end %>
       </div>
 
