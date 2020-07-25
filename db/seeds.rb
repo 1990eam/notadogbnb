@@ -9,9 +9,13 @@
 require 'faker'
 require 'open-uri'
 
-Notdog.destroy_all
+
+puts "Destroying Users"
 User.destroy_all
+puts "Destroying Bookings"
 Booking.destroy_all
+puts "Destroying Notdogs"
+Notdog.destroy_all
 
 puts "Creating Notdogs.."
 user = User.create!(email: "test@test.com", password: "test1234", name: "admin", address: "test", phone: "test")
@@ -120,7 +124,7 @@ puts "Saved Notdog"
 
 # Bookings
 puts "Creating bookings.."
-10.times do
+5.times do
   i = Notdog.count
 
     notdog = Notdog.find_by(id: Notdog.first.id + rand(i))
