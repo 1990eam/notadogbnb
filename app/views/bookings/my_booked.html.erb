@@ -13,6 +13,17 @@
                   <p><%= booking.start_date %> - <%= booking.end_date %></p>
                   <p><%= booking.notdog.address  %></p>
                   <p class=>USD$<%= booking.price %></p>
+                    <!-- Accept/Decline booking -->
+                    <% case booking.status %>
+                    <% when "pending" %>
+                    <p style="color: yellow; font-weight: bolder">Pending</p>
+                    <%= link_to "Accept", accept_path(booking), class:"btn btn-success" %>
+                    <%= link_to "Decline", decline_path(booking), class:"btn btn-danger" %>
+                    <% when "accepted" %>
+                    <p style="color: green; font-weight: bolder">Accepted</p>
+                    <% when "declined" %>
+                    <p style="color: red; font-weight: bolder">Declined</p>
+                    <% end %>
                 </div>
                 <%= link_to "See booking", booking_path(booking) %>
               </div>

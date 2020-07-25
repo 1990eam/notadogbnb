@@ -20,4 +20,12 @@ class BookingPolicy < ApplicationPolicy
   def destroy?
     record.user_id == user.id
   end
+
+  def accept?
+    record.notdog.owner == user
+  end
+
+  def decline?
+    record.notdog.owner == user
+  end
 end

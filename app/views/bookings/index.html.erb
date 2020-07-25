@@ -12,12 +12,14 @@
                 <p><%= booking.start_date %> - <%= booking.end_date %></p>
                 <p><%= booking.notdog.address  %></p>
                 <p class=>USD$<%= booking.price %></p>
-                <% if booking.status == "pending" %>
-                  <p class="booking-status">Booking status: <span class="pending"><%= booking.status %></span></p>
-                  <% elsif booking.status == "accepted" %>
-                  <p class="booking-status">Booking status: <span class="accepted"><%= booking.status %></span></p>
-                  <% elsif booking.status == "rejected" %>
-                  <p class="booking-status">Booking status: <span class="rejected"><%= booking.status %></span></p>
+                <!-- Accept/Decline booking -->
+                <% case booking.status %>
+                <% when "pending" %>
+                <p style="color: yellow; font-weight: bolder">Pending</p>
+                <% when "accepted" %>
+                <p style="color: green; font-weight: bolder">Accepted</p>
+                <% when "declined" %>
+                <p style="color: red; font-weight: bolder">Declined</p>
                 <% end %>
               </div>
               <%= link_to "See booking", booking_path(booking) %>

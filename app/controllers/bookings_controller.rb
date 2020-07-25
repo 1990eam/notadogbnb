@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
-  skip_after_action :verify_authorized, only: [:my_booked]
+  skip_after_action :verify_authorized, only: [:my_booked, :accept, :decline]
 
 
   def index
@@ -49,14 +49,26 @@ class BookingsController < ApplicationController
       render :show
     end
   end
-  
+
   def my_booked
     @notdogs = current_user.notdogs
   end
-  
+
   def destroy
     @booking.destroy
     redirect_to bookings_path
+  end
+
+  def accept
+    @booking = Booking.find(params[:booking_id])
+    @booking.update(status: "accepted")
+    redirect_to my_booked_path
+  end
+
+  def decline
+    @booking = Booking.find(params[:booking_id])
+    @booking.update(status: "declined")
+    redirect_to my_booked_path
   end
 
   private

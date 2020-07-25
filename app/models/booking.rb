@@ -6,16 +6,11 @@ class Booking < ApplicationRecord
   validates :notdog, :start_date, :end_date, :user, presence: true
   validate :start_date_lower_than_end_date
   validate :start_date_lower_than_today
-  validate :valid_booking_status
 
   def start_date_lower_than_end_date
     if start_date > end_date
       errors.add(:start_date, "no puede ser mayor que la fecha final")
     end
-  end
-
-  def valid_booking_status
-    status == "pending" || status == "accepted" || status == "rejected"
   end
 
   def start_date_lower_than_today
