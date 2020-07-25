@@ -15,14 +15,14 @@
                 <!-- Accept/Decline booking -->
                 <% case booking.status %>
                 <% when "pending" %>
-                <p style="color: yellow; font-weight: bolder">Pending</p>
+                <p style="color: #e59500; font-weight: bolder">Pending</p>
                 <% when "accepted" %>
                 <p style="color: green; font-weight: bolder">Accepted</p>
                 <% when "declined" %>
                 <p style="color: red; font-weight: bolder">Declined</p>
                 <% end %>
               </div>
-              <%= link_to "See booking", booking_path(booking) %>
+              <%= link_to "See booking", booking_path(booking), class: "see-booking" %>
             </div>
         </div>
       </div>
