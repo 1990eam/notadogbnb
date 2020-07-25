@@ -22,10 +22,10 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def accept?
-    record.notdog.owner == user
+
   end
 
   def decline?
-    record.notdog.owner == user
+    # record.notdog.owner == user
   end
 end

@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
-  skip_after_action :verify_authorized, only: [:my_booked, :accept, :decline]
+  skip_after_action :verify_authorized, only: [:my_booked]
 
 
   def index
