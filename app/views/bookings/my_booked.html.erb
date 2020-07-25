@@ -1,10 +1,10 @@
-<div class="container">
+<div class="container mt-5">
   <h1 class="main-header">My booked NotDogs</h1>
   <div class='row'>
     <% @notdogs.each do |notdog| %>
       <% notdog.bookings.each do |booking| %>
         <div class="col-12">
-          <div class="card-booking mb-3">
+          <div class="card-booking my-3">
               <img src=<%= cl_image_path booking.notdog.photo.key, height: 500, width: 700, crop: :fill %> >
 
               <div class='row'>
@@ -30,7 +30,7 @@
                     <p> Name: <strong> <%= booking.user.name.capitalize %></strong>  </p>
                   <% end %>
                   <p> Email: <strong> <%= booking.user.email %></strong> </p>
-                  <p> <%= booking.user.user_average_rating %><i class="fas fa-star" style="color: #ffcd3c"></i></p>
+                  <p> <i class="fas fa-star" style="color: #ffcd3c"></i> <%= booking.user.user_average_rating %></p>
                  </div>
                 </div>
             </div>

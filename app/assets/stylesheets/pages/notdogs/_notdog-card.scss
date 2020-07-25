@@ -41,6 +41,10 @@
   text-decoration: underline;
 }
 
+.card-notdog a:hover {
+  color: $logo-orange;
+}
+
 .card-notdog-user {
   right: 16px;
   top: 16px;
