@@ -4,25 +4,29 @@
     <div class="col-lg-3 col-6">
 
       <!-- Card -->
-          <div class="card-notdog-show mb-3">
-            <img src=<%= cl_image_path @notdog.photo.key, height: 500, width: 700, crop: :fill %> >
-            <div class="card-notdog-infos-show">
-              <div>
-                <p class="text-black-50"><%= @notdog.taxonomy_fantasy_name %> (<%= @notdog.taxonomy_name %>)</p>
-                <h2><%= link_to @notdog.name, notdog_path(@notdog) %></h2>
-                <p><%= @notdog.description %></p>
-              </div>
-                  <p class="card-notdog-pricing-show">USD$<%= @notdog.cost_per_day %></p>
-            </div>
+          <div class="card-notdog my-0 py-3 border-top">
+          <img class="card-notdog-img", src=<%= cl_image_path @notdog.photo.key, height: 400, width: 500, crop: :fill %> >
+          <div class="card-notdog-infos">
 
-            <div class="book-button">
-              <% if @notdog.owner != current_user %>
-                <%= link_to "Book this Notdog", new_notdog_booking_path(@notdog), class: "btn btn-primary book-button" %>
+            <div>
+              <p class="text-black-50"><%= @notdog.taxonomy_fantasy_name %> (<%= @notdog.taxonomy_name %>)</p>
+            <h2><%= @notdog.name %></h2>
+              <p><%= @notdog.description %></p>
+              <% if false #codigo para la reviews de amy...%>
+               <div id="stars"></div>
+                <p><i class="fas fa-star" style="color: #ffcd3c"></i> <%= @notdog.average_score %></p>
+              <% else %>
+                <p>No reviews yet 😞</p>
               <% end %>
             </div>
+          <% if @notdog.owner.photo.attached? %>
+              <%= cl_image_tag @notdog.owner.photo.key, class: "card-notdog-user avatar-bordered" %>
+            <% else %>
+              <%= image_tag "https://www.jdevoto.cl/web/wp-content/uploads/2018/04/default-user-img.jpg", class: "card-notdog-user avatar-bordered" %>
+            <% end %>
+            <p class="card-notdog-pricing"><strong>USD$<%= @notdog.cost_per_day %></strong>/day</p>
           </div>
-    </div>
-
+        </div>
       <!-- Details & Map -->
     <div class="card">
 
