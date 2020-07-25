@@ -34,13 +34,22 @@
           data-markers="<%= @markers.to_json %>"
           data-mapbox-api-key="<%= ENV["MAPBOX_API_KEY"] %>">
         <!-- Update & Delete -->
-        <div>
-          <% if policy(@booking).destroy? %>
-            <%= link_to "Delete this booking", booking_path(@booking), method: :delete, data: { confirm: 'Are you certain you want to delete this?' }  %>
-          <% end %>
-        </div>
+        <% unless @booking.end_date > Time.current || @booking.owner == current_user %>
+        <%= link_to "Add a Review", new_booking_review_path(@booking) %>
+        <% end %>
       </div>
     </div>
+    <div class="card-category" id="map-card"
+    style="width: 25vw; height: 25vh;"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV["MAPBOX_API_KEY"] %>">
+    <!-- Update & Delete -->
+    <div>
+      <% if policy(@booking).destroy? %>
+      <%= link_to "Delete this booking", booking_path(@booking), method: :delete, data: { confirm: 'Are you certain you want to delete this?' }  %>
+      <% end %>
+    </div>
   </div>
+</div>
 </div>
 

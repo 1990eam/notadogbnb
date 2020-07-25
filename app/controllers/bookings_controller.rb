@@ -1,5 +1,7 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
+  skip_after_action :verify_authorized, only: [:my_booked]
+
 
   def index
     @bookings = policy_scope(Booking).order(created_at: :asc)
@@ -47,7 +49,11 @@ class BookingsController < ApplicationController
       render :show
     end
   end
-
+  
+  def my_booked
+    @notdogs = current_user.notdogs
+  end
+  
   def destroy
     @booking.destroy
     redirect_to bookings_path
