@@ -42,4 +42,5 @@ document.addEventListener('turbolinks:load', () => {
   initMapboxForCards();
   initAutocomplete();
   loadDynamicBannerText();
+  calculateDays();
 });

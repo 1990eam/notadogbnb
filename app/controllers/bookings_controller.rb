@@ -21,13 +21,12 @@ class BookingsController < ApplicationController
     @booking = Booking.new
     @notdog = Notdog.find(params[:notdog_id].to_i)
     @booking.notdog = @notdog
-    # @notdog = Notdog.find(params[:notdog_id])
     authorize @notdog
     authorize @booking
   end
 
   def create
-    @booking = Booking.new(booking_params)
+    @booking = Booking.new(start_date: booking_params[:start_date].split[0], end_date: booking_params[:start_date].split[2])
     @booking.user = current_user
     @booking.notdog = Notdog.find(params[:notdog_id])
     @notdog = Notdog.find(params[:notdog_id])
@@ -49,11 +48,11 @@ class BookingsController < ApplicationController
       render :show
     end
   end
-  
+
   def my_booked
     @notdogs = current_user.notdogs
   end
-  
+
   def destroy
     @booking.destroy
     redirect_to bookings_path
