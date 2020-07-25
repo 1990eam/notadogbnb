@@ -11,12 +11,21 @@
               <p class="text-black-50"><%= notdog.taxonomy_fantasy_name %> (<%= notdog.taxonomy_name %>)</p>
             <h2><%= notdog.name %></h2>
               <p><%= notdog.description %></p>
-              <% if false #codigo para la reviews de amy...%>
-               <div id="stars"></div>
-                <p><i class="fas fa-star" style="color: #ffcd3c"></i> <%= notdog.average_score %></p>
+
+              <% if !notdog.reviews.empty? %>
+              <div class=d-flex>
+                <%= notdog.average_score %>
+                <% notdog.average_score.times do %>
+                <i class="fas fa-star" style="color: #ffcd3c"></i>
+                  <% end %>
+                <% (5 - notdog.average_score).times do %>
+                  <i class="far fa-star" style="color: #ffcd3c"></i>
+                <% end %>
+              </div>
               <% else %>
-                <p>No reviews yet 😞</p>
+                <p>No reviews yet <i class="far fa-frown" style="color: #ffcd3c"></i></p>
               <% end %>
+
             </div>
           <% if notdog.owner.photo.attached? %>
               <%= cl_image_tag notdog.owner.photo.key, class: "card-notdog-user avatar-bordered" %>

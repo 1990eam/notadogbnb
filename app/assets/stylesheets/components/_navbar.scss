@@ -23,6 +23,12 @@
   background-color: white;
 }
 
+.nav-link {
+  border: 1px solid;
+  border-radius: 20px;
+  margin: 5px;
+}
+
 /*Smallest device*/
 @media (min-width: 100px) and (max-width: 576px) {
   .navbar-lewagon .navbar-brand img {

@@ -13,18 +13,20 @@ class NotdogsController < ApplicationController
       @notdogs = policy_scope(Notdog).where(sql_query, query: "%#{params[:query]}%")
       if @notdogs.empty?
         @notdogs = policy_scope(Notdog).order(name: :asc).geocoded
+      else
+        @notdogs = policy_scope(Notdog).order(name: :asc).geocoded
+      end
+
+      @markers = @notdogs.map do |notdog|
+        {
+          lat: notdog.latitude,
+          lng: notdog.longitude,
+          infoWindow: render_to_string(partial: "info_window", locals: { notdog: notdog }),
+          image_url: helpers.asset_url('notdog-marker.png')
+        }
       end
     else
       @notdogs = policy_scope(Notdog).order(name: :asc).geocoded
-    end
-
-    @markers = @notdogs.map do |notdog|
-      {
-        lat: notdog.latitude,
-        lng: notdog.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { notdog: notdog }),
-        image_url: helpers.asset_url('notdog-marker.png')
-      }
     end
   end
 
