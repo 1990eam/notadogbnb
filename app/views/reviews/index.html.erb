@@ -1,9 +1,14 @@
 <div class='container'>
   <h1 class="main-header">Reviews</h1>
   <div class='row'>
-    <% @reviews.each do |review| %>
-    <%= review.user_score %>
-    <%= review.user_score %>
-    <% end %>
+     <div class="col-12">
+        <% @reviews.each do |review| %>
+        <div class=" mb-3">
+            <p> Score: <%= review.user_score %> <i class="fas fa-star" style="color: #ffcd3c"></i> </p>
+            <p> Review: <%= review.user_review %></p>
+        </div>
+        <hr>
+        <% end %>
+      </div>
   </div>
 </div>

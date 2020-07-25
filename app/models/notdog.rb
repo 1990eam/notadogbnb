@@ -8,14 +8,13 @@ class Notdog < ApplicationRecord
   has_many :reviews, through: :bookings, dependent: :destroy
   has_many :messages
 
-  include PgSearch::Model
-  pg_search_scope :search,
-    against: [:taxonomy_category, :taxonomy_name, :address],
-    using: {
-      tsearch: { prefix: true }
-    }
-
   def average_score
-    self.reviews.average(:user_score)
+    if !self.reviews.empty?
+      user_score = self.reviews.pluck(:user_score)
+      user_score.delete(nil)
+      user_score.sum / user_score.length
+    else
+      []
+    end
   end
 end

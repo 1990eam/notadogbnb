@@ -4,9 +4,11 @@
       <%= f.error_notification %>
 
       <% if @booking.owner != current_user %>
+        <h3> Would you please leave a review about your experience? </h3>
         <%= f.input :user_review, as: :text, :label => "Review", placeholder: "Escribe una reseña sobre tu experiencia" %>
         <%= f.input :user_score, label: "Rating" , collection: 1..5 %>
       <% else %>
+        <h3> Please leave a review of your client</h3>
         <%= f.input :owner_review, as: :text, :label => "Review", placeholder: "Escribe una reseña del cliente" %>
         <%= f.input :owner_score, label: "Rating" , collection: 1..5 %>
        <% end %>

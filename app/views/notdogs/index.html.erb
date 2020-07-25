@@ -13,8 +13,8 @@
               <p><%= notdog.description %></p>
 
               <% if !notdog.reviews.empty? %>
-                <% notdog.average_score %>
               <div class=d-flex>
+                <%= notdog.average_score %>
                 <% notdog.average_score.times do %>
                 <i class="fas fa-star" style="color: #ffcd3c"></i>
                   <% end %>
