@@ -1,6 +1,6 @@
 class NotdogsController < ApplicationController
   before_action :set_notdog, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authenticate_user!, only: [:index]
+  skip_before_action :authenticate_user!, only: [:index, :show]
   skip_after_action :verify_authorized, only: [:my_notdogs]
 
   def index

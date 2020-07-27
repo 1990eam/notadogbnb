@@ -5,9 +5,6 @@ class MessagePolicy < ApplicationPolicy
     end
   end
 
-
-
-
   def new?
     true
   end
