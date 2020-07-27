@@ -27,6 +27,7 @@ gem 'geocoder'
 gem 'turbolinks_render'
 gem 'pg_search', '~> 2.3.0'
 
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
