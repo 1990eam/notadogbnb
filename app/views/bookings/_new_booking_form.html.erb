@@ -1,0 +1,17 @@
+<div class="container form-container">
+  <div class="form-wrapper" style="margin: 0 auto;">
+       <h2 class="orange form-header">Book this Notdog now!</h2>
+    <%= simple_form_for([ @notdog, @booking ]) do |f| %>
+      <%= f.input :start_date, as: :string, label: "Date Range", input_html: {class: "datepicker"} %>
+      <%= f.button :submit, "Reserve", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+
+<div class="d-none booking-new">
+    <% @notdog.bookings.each do |booking| %>
+      <div id="invalid-dates">
+        <%= booking.start_date %> - <%= booking.end_date %>
+      </div>
+    <% end %>
+</div>

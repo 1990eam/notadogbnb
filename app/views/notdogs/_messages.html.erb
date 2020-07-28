@@ -15,17 +15,16 @@
 
         <div class="interaction">
 
-            <div class="message-body border-top">
+            <div class="message-body border-top px-2">
               <%= message.body %>
-
               <div class="message-body-infos">
                 <span class="created-at">(<%= time_ago_in_words(message.created_at, include_seconds: true) %> ago) </span>
                 <% if policy(message).update? %>
                   <%= link_to "Reply", edit_notdog_message_path(@notdog, message) %>
                 <% end %>
-                |
+
                 <% if policy(message).destroy? %>
-                  <%= link_to "Delete question", notdog_message_path(@notdog, message), method: :delete, data: { confirm: 'Are you certain you want to delete this?' }  %>
+                  | <%= link_to "Delete question", notdog_message_path(@notdog, message), method: :delete, data: { confirm: 'Are you certain you want to delete this?' }  %>
                 <% end %>
 
               </div>
@@ -33,7 +32,7 @@
 
             <!-- Answer logic -->
             <% if message.answer.present? %>
-              <div class="message-answer">
+              <div class="message-answer pr-2">
                 <div>
                   <i class="fas fa-level-up-alt flecha-respuesta"></i>  <%= message.answer %>
                 </div>
