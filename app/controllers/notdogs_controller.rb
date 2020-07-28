@@ -46,8 +46,8 @@ class NotdogsController < ApplicationController
     end
   end
 
-    def show
-      @markers =
+  def show
+    @markers =
       [{
         lat: @notdog.latitude,
         lng: @notdog.longitude,
@@ -55,6 +55,7 @@ class NotdogsController < ApplicationController
         image_url: helpers.asset_url('notdog-marker.png')
       }]
     # Q&A
+    booking_form
     @messages = @notdog.messages
     @reviews = @notdog.reviews
   end
@@ -94,6 +95,14 @@ class NotdogsController < ApplicationController
 
   def my_notdogs
     @notdogs = current_user.notdogs
+  end
+
+  def booking_form
+    @booking = Booking.new
+    @notdog = Notdog.find(params[:id].to_i)
+    @booking.notdog = @notdog
+    authorize @notdog
+    authorize @booking
   end
 
   private

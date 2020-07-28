@@ -6,24 +6,28 @@
       <%= render "search_bar_index" %>
     </div>
     <% @notdogs.each do |notdog| %>
+    <%= link_to notdog_path(notdog) do %>
         <div class="card-notdog my-0 py-3 border-top">
-          <img class="card-notdog-img", src=<%= cl_image_path notdog.photo.key, height: 400, width: 500, crop: :fill %> >
+          <img class="card-notdog-img border", src=<%= cl_image_path notdog.photo.key, height: 400, width: 500, crop: :fill %> >
           <div class="card-notdog-infos">
-            <%= link_to notdog_path(notdog) do %>
+
             <div>
               <p class="text-black-50"><%= notdog.taxonomy_fantasy_name %> (<%= notdog.taxonomy_name %>)</p>
             <h2><%= notdog.name %></h2>
-              <p><%= notdog.description %></p>
-
+              <% if notdog.description.length > 30 %>
+                <p><%= notdog.description[0...30] %>...</p>
+              <% else %>
+                <%= notdog.description %>
+              <% end %>
               <% if !notdog.reviews.empty? %>
               <div class="d-flex flex-nowrap align-items-center" >
-                <%= notdog.average_score %>
                 <% notdog.average_score.times do %>
                 <i class="fas fa-star" style="color: #ffcd3c"></i>
                   <% end %>
                 <% (5 - notdog.average_score).times do %>
                   <i class="far fa-star" style="color: #ffcd3c"></i>
                 <% end %>
+                <p class="text-black-50 ml-1">(<%= notdog.reviews.count %>)</p>
               </div>
               <% else %>
                 <p>No reviews yet <i class="far fa-frown" style="color: #ffcd3c"></i></p>

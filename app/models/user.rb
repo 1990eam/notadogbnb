@@ -9,6 +9,11 @@ class User < ApplicationRecord
   has_one_attached :photo
   validates :email, uniqueness: true
   has_many :reviews, through: :bookings, dependent: :destroy
+  validate :user_name_present
+
+  def user_name_present
+    name.nil? ? self.name = email.split('@').first.capitalize : name
+  end
 
   def user_average_rating
     counter = 0
